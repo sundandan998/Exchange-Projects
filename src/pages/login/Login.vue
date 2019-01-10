@@ -13,10 +13,10 @@
     <el-form-item prop="pass">
       <el-input type="password" v-model="verification.pass" autocomplete="off" placeholder="密码" class="exchange-login-input"></el-input>
     </el-form-item>
-    <!-- <el-form-item prop="verificationcode">
+    <el-form-item prop="verificationcode">
       <el-input placeholder="图片验证码" class="exchange-login-input-pic" v-model="VerificationCode"></el-input>
       <el-input type="" readonly="readonly" @click="createCode"  class="exchange-login-input-pic" v-model="checkCode"></el-input>
-    </el-form-item> -->
+    </el-form-item>
     <div class="exchange-input-checkbox">
       <input type="checkbox"> <span>记住账号</span>
     </div>
