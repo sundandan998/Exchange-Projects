@@ -19,9 +19,9 @@ export default {
   },
   methods: {
     // 是否显示头部
-    public_header: function (bool) {
-      this.header_show = false
-    }
+    // public_header: function (bool) {
+    //   this.header_show = false
+    // }
   }
 }
 </script>

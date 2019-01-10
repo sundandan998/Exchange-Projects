@@ -100,13 +100,12 @@ export default {
       const data = res
       console.log(data)
       if (data.status === 200) {
-        window.localStorage.setItem('session-users', JSON.stringify(data))
+        window.localStorage.setItem('data', JSON.stringify(data))
         console.log(data)
-        // saveUserInfo(data.data)
-        this.showname = true
-        // this.$router.push({
-        //   name: 'home'
-        // })
+        // saveUserInfo(data)
+        this.$router.push({
+          name: 'home',
+        })
         this.$message({
           type: 'success',
           message: '登录成功!'
