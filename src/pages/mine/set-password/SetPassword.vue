@@ -1,5 +1,5 @@
 <template>
-  <el-form  :model="verification" ref="verification" :rules="rules" label-width="110px" class="exchange-mine-setup">
+  <el-form :label-position="labelPosition" :model="verification" ref="verification" :rules="rules" label-width="110px" class="exchange-mine-setup">
     <div class="exchange-mine-setup-from">
       <template>
           <h2>我的>设置支付密码</h2>
@@ -14,9 +14,9 @@
       <el-form-item prop="checkPass" label="确认支付密码" class="exchange-mine-setup-item">
         <el-input type="password" v-model="verification.checkPass" autocomplete="off" class="exchange-mine-setup-input"></el-input>
       </el-form-item>
-      <div class="exchange-mine-setup-btn">
-        <el-button type="primary">确定</el-button>
-      </div>
+        <router-link to="/mine" class="exchange-mine-setup-btn" >
+            <el-button type="primary">确定</el-button>
+        </router-link>
     </div>
   </el-form>
 </template>
@@ -43,6 +43,7 @@ export default {
       }
     }
     return {
+      labelPosition: 'left',
       verification: {
         email: '',
         pass: '',

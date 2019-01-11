@@ -20,7 +20,17 @@ import Mine from '@/pages/mine/Mine'
 // 我的页面--修改密码页面
 import Modify from '@/pages/mine/modify/Modify'
 // 我的页面--设置支付密码页面
-import SetUp from '@/pages/mine/set-up/SetUp'
+import SetPassword from '@/pages/mine/set-password/SetPassword'
+// 我的页面--修改支付密码页面
+import ModifyPassword from '@/pages/mine/modify-password/ModifyPassword'
+// 我的页面--开启手机验证
+import OpenMobileVerification from '@/pages/mine/open-mobile-verification/OpenMobileVerification'
+// 我的页面--关闭手机验证
+import CloseMobileVerification from '@/pages/mine/close-mobile-verification/CloseMobileVerification'
+// 我的页面--开启谷歌验证
+import OpenGoogleVerification from '@/pages/mine/open-google-verification/OpenGoogleVerification'
+// 我的页面--关闭谷歌验证
+import CloseGoogleVerification from '@/pages/mine/close-google-verification/CloseGoogleVerification'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -80,9 +90,39 @@ export default new Router({
     },
     // 我的页面--设置支付密码页面
     {
-      path: '/setup',
-      name: 'setup',
-      component: SetUp
+      path: '/setpassword',
+      name: 'setpassword',
+      component: SetPassword
+    },
+    // 我的页面--修改支付密码页面
+    {
+      path: '/modifypassword',
+      name: 'modifypassword',
+      component: ModifyPassword
+    },
+    // 我的页面--开启手机验证页面
+    {
+      path: '/openmobileverification',
+      name: 'openmobileverification',
+      component: OpenMobileVerification
+    },
+    // 我的页面--关闭手机验证
+    {
+      path: '/closemobileverification',
+      name: 'closemobileverification',
+      component: CloseMobileVerification
+    },
+    // 我的页面--开启谷歌验证页面
+    {
+      path: '/opengoogleverification',
+      name: 'opengoogleverification',
+      component: OpenGoogleVerification
+    },
+    // 我的页面--关闭谷歌验证页面
+    {
+      path: '/closegoogleverification',
+      name: 'closegoogleverification',
+      component: CloseGoogleVerification
     }
   ]
 })
