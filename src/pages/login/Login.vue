@@ -7,7 +7,7 @@
       <el-input v-model="verification.email" class="exchange-login-input" placeholder="邮箱"></el-input>
     </el-form-item>
     <el-form-item prop="pass">
-      <el-input type="password" placeholder="密码" v-model="verification.pass" autocomplete="off" class="exchange-login-input"></el-input>
+      <el-input type="password" v-model="verification.pass" autocomplete="off" placeholder="密码" class="exchange-login-input"></el-input>
     </el-form-item>
     <el-form-item prop="verificationcode">
       <el-input placeholder="图片验证码" class="exchange-login-input-pic" v-model="VerificationCode"></el-input>
@@ -29,11 +29,23 @@
 export default {
   name: 'login',
   data () {
+    var validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        if (this.verification.checkPass !== '') {
+          this.$refs.verification.validateField('checkPass')
+        }
+        callback()
+      }
+    }
     return {
       verification: {
         email: '',
-        validate: '',
-        verificationcode: ''
+        pass: '',
+        checkPass: '',
+        from: 'system',
+        coupon: {}
       },
       rules: {
         // 校验邮箱
@@ -43,6 +55,7 @@ export default {
         ],
         // 校验密码
         pass: [
+          { validator: validatePass, trigger: 'blur' },
           { pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/, message: '密码为8-16位字母加数字组合' }
         ]
       }

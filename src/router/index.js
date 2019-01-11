@@ -19,6 +19,8 @@ import MailboxValidation from '@/pages/Register/mailbox-validation/MailboxValida
 import Mine from '@/pages/mine/Mine'
 // 我的页面--修改密码页面
 import Modify from '@/pages/mine/modify/Modify'
+// 我的页面--设置支付密码页面
+import SetUp from '@/pages/mine/set-up/SetUp'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -75,6 +77,12 @@ export default new Router({
       path: '/modify',
       name: 'modify',
       component: Modify
+    },
+    // 我的页面--设置支付密码页面
+    {
+      path: '/setup',
+      name: 'setup',
+      component: SetUp
     }
   ]
 })

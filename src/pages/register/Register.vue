@@ -58,9 +58,6 @@ export default {
     }
     return {
       verification: {
-        domains: [{
-          value: ''
-        }],
         email: '',
         pass: '',
         checkPass: '',
@@ -91,14 +88,6 @@ export default {
         key: Date.now()
       })
     },
-    // 校验密码
-    validateJyh (glhm) {
-      var reg = /^[A-Za-z0-9]{8,16}$/
-      if (!reg.test(glhm)) {
-        this.$Message.error('请输入字母或数字')
-        this.form.glhm = ''
-      }
-    },
     // 验证码验证
     createCode () {
       this.code = ''
@@ -115,17 +104,6 @@ export default {
   },
   created () {
     this.createCode()
-  },
-  mounted () {
-    if (this.$route.query.from) {
-      this.from = this.$route.query.from
-    }
-    if (this.$route.query.id) {
-      this.id = this.$route.query.id
-    }
-    if (this.$route.query.form === 'system') {
-      this.initCouponInfo()
-    }
   }
 }
 </script>

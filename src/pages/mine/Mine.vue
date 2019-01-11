@@ -17,7 +17,7 @@
       </el-form-item>
       <el-form-item label="登录密码">
         <el-input class="exchange-mine-input"></el-input>
-        <el-button type="primary" size="mini" class="exchange-mine-btn">修改</el-button>
+        <el-button type="primary" size="mini" class="exchange-mine-btn" @click="ModifyPassword">修改</el-button>
       </el-form-item>
       <div class="exchange-mine-information">
         <img src="../../assets/Images/safety certificate.png" alt=""> <span>安全认证</span><h5>（开启多重验证，保障资产安全）</h5>
@@ -32,7 +32,7 @@
       </el-form-item>
       <el-form-item label="支付密码">
         <el-input class="exchange-mine-input" readonly="readonly"></el-input>
-        <el-button type="primary" size="mini" class="exchange-mine-btn">设置</el-button>
+        <el-button type="primary" size="mini" class="exchange-mine-btn" @click="SetUp">设置</el-button>
       </el-form-item>
   </el-form>
   </div>
@@ -50,6 +50,14 @@ export default {
     // 跳转登录页面
     login () {
       this.$router.push('/login')
+    },
+    // 跳转修改登录密码页面
+    ModifyPassword () {
+      this.$router.push('/Modify')
+    },
+    // 跳转设置支付密码页面
+    SetUp () {
+      this.$router.push('/setup')
     }
   }
 }
