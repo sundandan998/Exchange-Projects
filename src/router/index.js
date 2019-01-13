@@ -31,6 +31,8 @@ import CloseMobileVerification from '@/pages/mine/close-mobile-verification/Clos
 import OpenGoogleVerification from '@/pages/mine/open-google-verification/OpenGoogleVerification'
 // 我的页面--关闭谷歌验证
 import CloseGoogleVerification from '@/pages/mine/close-google-verification/CloseGoogleVerification'
+// 我的页面--关闭所有
+import CloseAll from '@/pages/mine/close-all/CloseAll'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -123,6 +125,12 @@ export default new Router({
       path: '/closegoogleverification',
       name: 'closegoogleverification',
       component: CloseGoogleVerification
+    },
+    // 我的页面--关闭所有
+    {
+      path: '/closeall',
+      name: 'closeall',
+      component: CloseAll
     }
   ]
 })
