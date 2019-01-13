@@ -1,7 +1,7 @@
 <template>
   <div>
       <el-button type="text" @click="centerDialogVisible = true">点击打开 Dialog</el-button>
-      <el-dialog title="修改手机号/关闭手机验证/关闭谷歌验证/修改支付密码/重置支付密码":visible.sync="centerDialogVisible" width="50%" center>
+      <el-dialog title="修改手机号/关闭手机验证/关闭谷歌验证/修改支付密码/重置支付密码" :visible.sync="centerDialogVisible" width="50%" center>
         <div class="exchange-mine-close-all-input">
           <p>短信验证码</p>
             <el-input class="exchange-mine-close-all-info" ></el-input>
