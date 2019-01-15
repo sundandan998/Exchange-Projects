@@ -25,7 +25,7 @@
       <input type="checkbox"> <span>同一用户协议</span>
     </div>
     <el-form-item class="exchange-register-button">
-      <router-link to="/mailboxvalidation">
+      <router-link to="/mailbox-validation">
         <el-button type="primary">注册</el-button>
       </router-link>
       <div class="exchange-register-footer-button">

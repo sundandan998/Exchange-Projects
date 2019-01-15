@@ -13,11 +13,13 @@
           </div>
           <div class="exchange-assets-total-btn fr">
              <input type="text" placeholder="请输入币种"><img src="../../assets/Images/Search.png" alt="">
-             <router-link to="MentionDetails">
+             <router-link to="mention-details">
                 <el-button type="primary" size="mini">充提明细</el-button>
              </router-link>
-             <el-button type="primary" size="mini">提币地址管理</el-button>
-            </div>
+             <router-link to="money-withdrawal-address">
+                <el-button type="primary" size="mini">提币地址管理</el-button>
+             </router-link>
+          </div>
       </div>
       <!-- 表格部分 -->
       <div class="exchange-assets-table">
@@ -30,8 +32,12 @@
               label="操作"
               width="100">
               <template slot-scope="scope">
-                <el-button type="text" size="small">充币</el-button>
-                <el-button type="text" size="small">提币</el-button>
+                <router-link to="coin-charging">
+                    <el-button type="text" size="small">充币</el-button>
+                </router-link>
+                  <router-link to="withdraw-money">
+                    <el-button type="text" size="small">提币</el-button>
+                </router-link>
               </template>
             </el-table-column>
           </el-table>
@@ -83,9 +89,9 @@ export default {
   }
   .exchange-assets-line{
     width: 800px;
-    height: 2px;
+    height: 1px;
     background-color: #ccc;
-    margin-top: 10px;
+    margin-top: 20px;
   }
   .exchange-assets-total{
     margin-top: 30px;

@@ -42,7 +42,7 @@ export default {
     },
     // 跳转重置密码说明页面
     restpasswordtext () {
-      this.$router.push('/restpasswordtext')
+      this.$router.push('/rest-password-text')
     }
   },
   created () {

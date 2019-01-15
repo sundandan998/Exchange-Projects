@@ -100,8 +100,4 @@ export default {
     height: 26px;
     margin-right: 30px;
   }
-  .exchange-assets-paging{
-  margin-top: 200px;
-  text-align: center;
-  }
 </style>

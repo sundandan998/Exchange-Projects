@@ -24,19 +24,19 @@
       </div>
       <el-form-item label="手机号验证">
         <el-input class="exchange-mine-input" readonly="readonly" placeholder="请选择是否需要开启"></el-input>
-        <router-link to="/openmobileverification">
+        <router-link to="/open-mobile-verification">
             <el-switch class="exchange-mine-switch" v-model="close" ></el-switch>
         </router-link>
       </el-form-item>
       <el-form-item label="谷歌器验证">
         <el-input class="exchange-mine-input" placeholder="请选择是否需要开启" readonly="readonly" ></el-input>
-        <router-link to="/opengoogleverification">
+        <router-link to="/open-google-verification">
             <el-switch class="exchange-mine-switch" v-model="close" ></el-switch>
         </router-link>
       </el-form-item>
       <el-form-item label="支付密码">
         <el-input class="exchange-mine-input" readonly="readonly"></el-input>
-        <router-link to="/modifypassword">
+        <router-link to="/modify-password">
             <el-button type="primary" size="mini" class="exchange-mine-btn-modify" @click="SetUp">修改</el-button>
         </router-link>
         <el-button type="primary" size="mini" class="exchange-mine-btn" @click="SetUp">设置</el-button>
@@ -64,7 +64,7 @@ export default {
     },
     // 跳转设置支付密码页面
     SetUp () {
-      this.$router.push('/setpassword')
+      this.$router.push('/set-password')
     }
   }
 }

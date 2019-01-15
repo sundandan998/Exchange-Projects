@@ -33,7 +33,7 @@ export default {
 </script>
 <style>
 .exchange-assets-paging{
-  margin-top: 200px;
+  margin-top: 150px;
   text-align: center;
   }
 </style>

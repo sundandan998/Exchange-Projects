@@ -19,7 +19,7 @@
     <el-form-item class="exchange-login-button">
       <el-button type="primary" @click="handleLogin">登录</el-button>
       <div class="exchange-login-footer-button">
-          <router-link to="/restpassword" class="exchange-login-footer-button-text">忘记密码？</router-link >
+          <router-link to="/rest-password" class="exchange-login-footer-button-text">忘记密码？</router-link >
           <router-link to="/register" class="exchange-login-footer-button-text">注册账号</router-link >
       </div>
     </el-form-item>

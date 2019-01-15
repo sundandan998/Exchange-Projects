@@ -37,6 +37,12 @@ import CloseAll from '@/pages/mine/close-all/CloseAll'
 import Assets from '@/pages/assets/Assets'
 // 资产页面--提币明细
 import MentionDetails from '@/pages/assets/mention-details/MentionDetails'
+// 资产页面--提币地址
+import MoneyWithdrawalAddress from '@/pages/assets/money-withdrawal-address/MoneyWithdrawalAddress'
+// 资产页面--提币
+import WithdrawMoney from '@/pages/assets/withdraw-money/WithdrawMoney'
+// 资产页面--充币
+import CoinCharging from '@/pages/assets/Coin-charging/CoinCharging'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -66,20 +72,20 @@ export default new Router({
     },
     // 重置登录密码表单
     {
-      path: '/restpassword',
-      name: 'restpassword',
+      path: '/rest-password',
+      name: 'rest-password',
       component: RestPassword
     },
     // 重置登录密码说明
     {
-      path: '/restpasswordtext',
-      name: 'restpasswordtext',
+      path: '/rest-password-text',
+      name: 'rest-password-text',
       component: RestPasswordText
     },
     // 邮箱验证页面
     {
-      path: '/mailboxvalidation',
-      name: 'mailboxvalidation',
+      path: '/mailbox-validation',
+      name: 'mailbox-validation',
       component: MailboxValidation
     },
     // 我的页面
@@ -96,38 +102,38 @@ export default new Router({
     },
     // 我的页面--设置支付密码页面
     {
-      path: '/setpassword',
-      name: 'setpassword',
+      path: '/set-password',
+      name: 'set-password',
       component: SetPassword
     },
     // 我的页面--修改支付密码页面
     {
-      path: '/modifypassword',
-      name: 'modifypassword',
+      path: '/modify-password',
+      name: 'modify-password',
       component: ModifyPassword
     },
     // 我的页面--开启手机验证页面
     {
-      path: '/openmobileverification',
-      name: 'openmobileverification',
+      path: '/open-mobile-verification',
+      name: 'open-mobile-verification',
       component: OpenMobileVerification
     },
     // 我的页面--关闭手机验证
     {
-      path: '/closemobileverification',
-      name: 'closemobileverification',
+      path: '/close-mobile-verification',
+      name: 'close-mobile-verification',
       component: CloseMobileVerification
     },
     // 我的页面--开启谷歌验证页面
     {
-      path: '/opengoogleverification',
-      name: 'opengoogleverification',
+      path: '/open-google-verification',
+      name: 'open-google-verification',
       component: OpenGoogleVerification
     },
     // 我的页面--关闭谷歌验证页面
     {
-      path: '/closegoogleverification',
-      name: 'closegoogleverification',
+      path: '/close-google-verification',
+      name: 'close-google-verification',
       component: CloseGoogleVerification
     },
     // 我的页面--关闭所有
@@ -144,9 +150,27 @@ export default new Router({
     },
     // 资产页面--提币明细
     {
-      path: '/mentiondetails',
-      name: 'mentiondetails',
+      path: '/mention-details',
+      name: 'mention-details',
       component: MentionDetails
+    },
+    // 资产页面--提币地址
+    {
+      path: '/money-withdrawal-address',
+      name: 'money-withdrawal-address',
+      component: MoneyWithdrawalAddress
+    },
+    // 资产页面--提币
+    {
+      path: '/withdraw-money',
+      name: 'withdraw-money',
+      component: WithdrawMoney
+    },
+    // 资产页面--充币
+    {
+      path: '/coin-charging',
+      name: 'coin-charging',
+      component: CoinCharging
     }
   ]
 })
