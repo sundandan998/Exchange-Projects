@@ -1,4 +1,5 @@
 <template>
+  <!-- 标题部分 -->
   <div class="exchange-assets">
     <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-from">
       <div class="exchange-assets-title">
@@ -18,6 +19,7 @@
              <el-button type="primary" size="mini">提币地址管理</el-button>
             </div>
       </div>
+      <!-- 表格部分 -->
       <div class="exchange-assets-table">
           <el-table :data="tableData">
               <el-table-column prop="date" label="币种"></el-table-column>
@@ -34,10 +36,13 @@
             </el-table-column>
           </el-table>
       </div>
+      <!-- 分页部分 -->
+     <app-paging></app-paging>
   </el-form>
   </div>
 </template>
 <script>
+import paging from '../../components/public/paging/Paging'
 export default {
   data () {
     return {
@@ -51,6 +56,17 @@ export default {
         address: '0.12000000'
       }]
     }
+  },
+  methods: {
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`)
+    }
+  },
+  components: {
+    'app-paging': paging
   }
 }
 </script>
