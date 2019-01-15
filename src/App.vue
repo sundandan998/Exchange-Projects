@@ -43,10 +43,10 @@ export default {
     height: 100%;
     background: url(assets/Images/bj1.jpg) no-repeat; */
   }
-  .left{
+  .fl{
     float: left;
   }
-  .right{
+  .fr{
     float: right;
   }
 </style>

@@ -33,6 +33,10 @@ import OpenGoogleVerification from '@/pages/mine/open-google-verification/OpenGo
 import CloseGoogleVerification from '@/pages/mine/close-google-verification/CloseGoogleVerification'
 // 我的页面--关闭所有
 import CloseAll from '@/pages/mine/close-all/CloseAll'
+// 资产页面
+import Assets from '@/pages/assets/Assets'
+// 资产页面--提币明细
+import MentionDetails from '@/pages/assets/mention-details/MentionDetails'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -131,6 +135,18 @@ export default new Router({
       path: '/closeall',
       name: 'closeall',
       component: CloseAll
+    },
+    // 资产页面
+    {
+      path: '/assets',
+      name: 'assets',
+      component: Assets
+    },
+    // 资产页面--提币明细
+    {
+      path: '/mentiondetails',
+      name: 'mentiondetails',
+      component: MentionDetails
     }
   ]
 })

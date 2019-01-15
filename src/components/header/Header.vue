@@ -33,7 +33,7 @@
               <el-menu-item index="login" @click="login">登录</el-menu-item>
             </template>
             <template v-else>
-              <el-menu-item index="assets">资产</el-menu-item>
+              <el-menu-item index="assets" @click="assets">资产</el-menu-item>
               <el-menu-item index="administration">委托单管理</el-menu-item>
               <el-menu-item index="mine" @click="mine">我的</el-menu-item>
             </template>
@@ -72,6 +72,10 @@ export default {
     // 跳转我的页面
     mine () {
       this.$router.push('/mine')
+    },
+    // 跳转资产页面
+    assets () {
+      this.$router.push('/assets')
     }
   }
 }
