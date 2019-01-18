@@ -1,0 +1,193 @@
+// $login-width: 500px;
+// $login-height: 475px;
+// $login-bgc: #fff;
+// $login-margin:50px auto;
+// .exchange-login{
+//   width: $login-width;
+//   height: $login-height;
+//   background-color:$login-bgc;
+//   margin:$login-margin;
+//   input{
+//     width:300px;
+//   }
+// }
+// ----------------------------币币交易---------------------------------------
+$coin-bgc:#fff;
+.el-aside {
+  background-color: $coin-bgc;
+  padding-left: 5px;
+}
+.coin-aside-top-title{
+  margin:5px 0px 10px 0px;
+  h3{
+    margin-bottom: 10px;
+  }
+}
+.coin-aside-line{
+  width: 300px;
+  height: 1px;
+  margin-top: 10px;
+  background-color: #000;
+  overflow: hidden;
+}
+.coin-aside-top-search{
+  input{
+    width: 260px;
+    height: 30px;
+    text-indent: 1em;
+  }
+  img{
+    height: 25px;
+    position: relative;
+    top: 10px;
+  }
+}
+.coin-aside-top-data{
+  margin:10px 0 20px 0;
+  span{
+    margin: 10px 55px 10px 0;
+    font-size: 14px;
+  }
+  p{
+    display: -webkit-inline-box;
+      img{
+        position: relative;
+        top: 10px;
+      }
+      li{
+        float: left;
+        margin: 10px 8px 0px 8px;
+      }
+    }
+}
+.coin-aside-slider{
+    margin-top: 10px;
+  }
+.coin-aside-bottom-data{
+  margin:10px 0 50px 0;
+  span{
+    margin: 10px 40px 10px 0;
+    font-size: 14px;
+  }
+  p{
+    display: -webkit-inline-box;
+      img{
+        position: relative;
+        top: 10px;
+      }
+      li{
+        float: left;
+        margin: 10px 8px 0px 8px;
+      }
+  }
+}
+.coin-main-top{
+  img{
+    width: 860px;
+    height: 300px;
+  }
+}
+.coin-main-bottom-left{
+  h4{
+    color:red;
+    margin:10px 0 10px 0;
+    font-weight: 400;
+  }
+  p{
+    margin:10px 10px 10px 5px;
+  }
+  input{
+    width: 280px;
+    height: 25px;
+    margin:10px 0 10px 0;
+  }
+  ul{
+    margin-left: 59px;
+  }
+  li{
+    float: left;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    margin:0 55px 20px 0;
+  }
+  button{
+    width: 380px;
+  }
+}
+.coin-main-line{
+  height: 260px;
+  width: 1px;
+  background-color: #000;
+  float: left;
+  margin-left: 18px;
+}
+.coin-main-bottom-right{
+  h4{
+    color:red;
+    margin:10px 0 10px 0;
+    font-weight: 400;
+  }
+  p{
+    margin:10px 10px 10px 5px;
+  }
+  input{
+    width: 280px;
+    height: 25px;
+    margin:10px 0 10px 0;
+  }
+  ul{
+    margin-left: 59px;
+  }
+  li{
+    float: left;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    margin:0 55px 20px 0;
+  }
+  button{
+    width: 380px;
+  }
+}
+.coin-aside-right-data{
+  margin:10px 0 50px 0;
+  span{
+    margin: 10px 40px 10px 0;
+    font-size: 14px;
+  }
+  p{
+    display: -webkit-inline-box;
+      li{
+        float: left;
+        margin: 10px 8px 0px 8px;
+      }
+  }
+  h3{
+    color:red;
+    text-align: center;
+    line-height: 35px;
+    margin-top: 5px;
+  }
+}
+.coin-footer{
+  width: 1519px;
+  margin-left: -20px;
+  h3{
+    float: left;
+    margin:10px 0 10px 0;
+  }
+}
+.coin-entrust{
+  float: right;
+  margin:10px 60px 0 0;
+  font-size:14px;
+  color:#409EFF;
+}
+// -------------------------------------------------委托单页面----------------------
+.coin-entrust-page{
+  width: 1300px;
+  height: 600px;
+  background-color: #fff;
+  margin:20px auto;
+}
+
+

@@ -15,7 +15,7 @@
             </el-menu-item>
             <el-menu-item index="home">首页</el-menu-item>
             <el-menu-item index="center">公告中心</el-menu-item>
-            <el-menu-item index="transaction">币币交易</el-menu-item>
+            <el-menu-item index="transaction" @click="coin">币币交易</el-menu-item>
           </el-menu>
         </div>
       </el-col>
@@ -76,6 +76,10 @@ export default {
     // 跳转资产页面
     assets () {
       this.$router.push('/assets')
+    },
+    // 跳转币币交易页面
+    coin () {
+      this.$router.push('/currency-trading')
     }
   }
 }

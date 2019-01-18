@@ -8,7 +8,7 @@
       <div class="exchange-assets-coin-address">
         <h4>方式一: 提币地址</h4>
         <p>16GGXHcXg4JMDCs12G1dV1GDLF1chd6RVD</p>
-        <el-button type="primary" size="small" @click="success">复制地址</el-button>
+        <el-button type="primary" size="small" @click="copyUrl">复制地址</el-button>
       </div>
       <div class="exchange-assets-coin-scan">
         <h4>方式二: 扫一扫充币二维码</h4>
@@ -37,6 +37,16 @@ export default {
         message: '复制链接成功',
         type: 'success'
       })
+    },
+    copyUrl () {
+      const input = document.createElement('input')
+      document.body.appendChild(input)
+      input.setAttribute('value', '16GGXHcXg4JMDCs12G1dV1GDLF1chd6RVD')
+      input.select()
+      if (document.execCommand('copy')) {
+        document.execCommand('copy')
+      }
+      document.body.removeChild(input)
     }
   }
 }

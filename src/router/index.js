@@ -43,6 +43,10 @@ import MoneyWithdrawalAddress from '@/pages/assets/money-withdrawal-address/Mone
 import WithdrawMoney from '@/pages/assets/withdraw-money/WithdrawMoney'
 // 资产页面--充币
 import CoinCharging from '@/pages/assets/Coin-charging/CoinCharging'
+// 币币交易页面
+import CurrencyTrading from '@/pages/currency-trading/CurrencyTrading'
+// 币币交易页面--委托所有
+import Entrust from '@/pages/currency-trading/entrust/Entrust'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -171,6 +175,18 @@ export default new Router({
       path: '/coin-charging',
       name: 'coin-charging',
       component: CoinCharging
+    },
+    // 币币交易
+    {
+      path: '/currency-trading',
+      name: 'currency-trading',
+      component: CurrencyTrading
+    },
+    // 币币交易--委托所有
+    {
+      path: '/entrust',
+      name: 'entrust',
+      component: Entrust
     }
   ]
 })

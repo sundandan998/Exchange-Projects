@@ -25,6 +25,7 @@
     </el-form-item>
   </el-form>
 </template>
+<style src="../login/css/Login.css"></style>
 <script>
 export default {
   name: 'login',
@@ -113,49 +114,6 @@ export default {
   }
 }
 </script>
-<style>
-  .exchange-login{
-    width: 500px;
-    height: 475px;
-    background-color: #fff;
-    margin:50px auto;
-  }
-  .exchange-login-input {
-    width: 300px;
-    text-align: center;
-  }
-  .exchange-input-checkbox{
-    margin-left: 100px;
-    margin-bottom: 10px;
-  }
-  .exchange-login-title{
-    text-align: center;
-  }
-  .exchange-login-title h1{
-    font-weight: 400;
-    padding:30px 0 30px 0px;
-  }
-  .exchange-input-checkbox span{
-    color:#666;
-  }
-  .exchange-login-button button{
-    width: 300px;
-  }
-  .exchange-login-button button:hover {
-    background-color: #ccc;
-  }
-  .exchange-login-footer-button-text{
-    color:#409EFF;
-  }
-  .exchange-login-footer-button :last-child{
-    float: right;
-    padding-right: 100px;
-  }
-  .exchange-login-input-pic.el-input {
-      width: 150px;
-  }
-  .exchange-login-button button{
-    background-color: #ccc;
-    border:#ccc;
-  }
+<style lang="scss">
+  /* @import'../../assets/scss/global.scss' */
 </style>
