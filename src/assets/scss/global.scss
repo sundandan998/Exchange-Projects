@@ -183,11 +183,59 @@ $coin-bgc:#fff;
   color:#409EFF;
 }
 // -------------------------------------------------委托单页面----------------------
-.coin-entrust-page{
+.order-form{
   width: 1300px;
   height: 600px;
   background-color: #fff;
   margin:20px auto;
+  overflow: hidden;
 }
 
+.order-form-title{
+  margin-left:100px;
+  h3{
+    margin:20px 0 10px 0;
 
+  }
+}
+.order-form-line{
+  width: 1100px;
+  height: 1px;
+  background-color: #999;
+} 
+.order-form-tabs{
+  width: 1100px;
+  margin:20px 0 10px 100px;
+}
+.order-form-tabs-title{
+  margin:10px 0 20px 0;
+ select{
+   width: 70px;
+   height: 25px;
+   margin-right: 110px;
+  }
+  button{
+    margin-left: 70px;
+  }
+  input{
+    height: 25px;
+  }
+}
+.order-form-usdt{
+  margin-left: -110px;
+}
+.order-form-tabs-configure-title{
+  margin:10px 0 20px 0;
+  select{
+    width: 85px;
+    height: 25px;
+    margin-right: 10px;
+   }
+   input{
+     height: 25px;
+     width: 140px;
+   }
+}
+.order-form-usdt{
+  margin-left: -10px;
+}

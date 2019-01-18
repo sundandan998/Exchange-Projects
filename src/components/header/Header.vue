@@ -34,7 +34,7 @@
             </template>
             <template v-else>
               <el-menu-item index="assets" @click="assets">资产</el-menu-item>
-              <el-menu-item index="administration">委托单管理</el-menu-item>
+              <el-menu-item index="administration" @click="form">委托单管理</el-menu-item>
               <el-menu-item index="mine" @click="mine">我的</el-menu-item>
             </template>
             <el-submenu index="language">
@@ -80,6 +80,10 @@ export default {
     // 跳转币币交易页面
     coin () {
       this.$router.push('/currency-trading')
+    },
+    // 跳转委托单管理页面
+    form () {
+      this.$router.push('/order-form')
     }
   }
 }

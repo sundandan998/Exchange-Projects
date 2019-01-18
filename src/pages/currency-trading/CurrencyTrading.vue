@@ -247,7 +247,7 @@
           </el-table>
           <template>
               <h3>历史委托(近7天)</h3>
-              <router-link to="/entrust" class="coin-entrust">所有委托</router-link>
+              <router-link to="/order-form" class="coin-entrust">所有委托</router-link>
           </template>
           <el-table :data="tableData">
             <el-table-column prop="date" label="委托时间" width="180"></el-table-column>

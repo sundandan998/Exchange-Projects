@@ -45,8 +45,8 @@ import WithdrawMoney from '@/pages/assets/withdraw-money/WithdrawMoney'
 import CoinCharging from '@/pages/assets/Coin-charging/CoinCharging'
 // 币币交易页面
 import CurrencyTrading from '@/pages/currency-trading/CurrencyTrading'
-// 币币交易页面--委托所有
-import Entrust from '@/pages/currency-trading/entrust/Entrust'
+// 委托单管理页面
+import OrderForm from '@/pages/order-form/OrderForm'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -182,11 +182,11 @@ export default new Router({
       name: 'currency-trading',
       component: CurrencyTrading
     },
-    // 币币交易--委托所有
+    // 委托单页面
     {
-      path: '/entrust',
-      name: 'entrust',
-      component: Entrust
+      path: '/order-form',
+      name: 'order-form',
+      component: OrderForm
     }
   ]
 })
