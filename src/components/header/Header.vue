@@ -14,7 +14,7 @@
               <img src="../../assets/Images/logo.png" alt="">
             </el-menu-item>
             <el-menu-item index="home">首页</el-menu-item>
-            <el-menu-item index="center">公告中心</el-menu-item>
+            <el-menu-item index="center" @click="notice">公告中心</el-menu-item>
             <el-menu-item index="transaction" @click="coin">币币交易</el-menu-item>
           </el-menu>
         </div>
@@ -84,6 +84,10 @@ export default {
     // 跳转委托单管理页面
     form () {
       this.$router.push('/order-form')
+    },
+    // 跳转公告中心页面
+    notice () {
+      this.$router.push('/notice-center')
     }
   }
 }

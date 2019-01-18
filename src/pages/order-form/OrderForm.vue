@@ -55,7 +55,7 @@
                   <option value="">BTC</option>
                   <option value="">EOS</option>
                 </select>
-                <span class="order-form-usdt">/</span>
+                <span class="order-form-configure-usdt">/</span>
                 <select >
                   <option value="">USDT</option>
                 </select>

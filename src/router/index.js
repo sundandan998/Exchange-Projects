@@ -47,6 +47,16 @@ import CoinCharging from '@/pages/assets/Coin-charging/CoinCharging'
 import CurrencyTrading from '@/pages/currency-trading/CurrencyTrading'
 // 委托单管理页面
 import OrderForm from '@/pages/order-form/OrderForm'
+// 公告中心
+import NoticeCenter from '@/pages/notice-center/NoticeCenter'
+// 公告中心--问题反馈
+import ProblemFeedback from '@/pages/notice-center/problem-feedback/ProblemFeedback'
+// 公告中心--历史反馈
+import HistoricalFeedback from '@/pages/notice-center/historical-feedback/HistoricalFeedback'
+// 公告中心--充值费率
+import RechargerRate from '@/pages/notice-center/recharge-rate/RechargerRate'
+// 公告中心--费率标准
+import RateStandard from '@/pages/notice-center/rate-standard/RateStandard'
 Vue.use(Router)
 Vue.use(Vuex)
 export default new Router({
@@ -187,6 +197,36 @@ export default new Router({
       path: '/order-form',
       name: 'order-form',
       component: OrderForm
+    },
+    // 公告中心
+    {
+      path: '/notice-center',
+      name: 'notice-center',
+      component: NoticeCenter
+    },
+    // 公告中心--问题反馈
+    {
+      path: '/problem-feedback',
+      name: 'problem-feedback',
+      component: ProblemFeedback
+    },
+    // 公告中心--历史反馈
+    {
+      path: '/historical-feedback',
+      name: 'historical-feedback',
+      component: HistoricalFeedback
+    },
+    // 公告中心--充值费率
+    {
+      path: '/recharge-rate',
+      name: 'recharge-rate',
+      component: RechargerRate
+    },
+    // 公告中心--费率标准
+    {
+      path: '/rate-standard',
+      name: 'rate-standard',
+      component: RateStandard
     }
   ]
 })
