@@ -14,6 +14,7 @@
         <el-button>常见问题</el-button>
         <el-button type="primary">新手帮助</el-button>
         <input type="text" placeholder="请输入关键字">
+        <img src="../../assets/Images/Search.png" alt="">
     </div>
     <div class="notice-center-text">
       <ul class="fl">
