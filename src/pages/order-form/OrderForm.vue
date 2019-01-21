@@ -42,7 +42,7 @@
                   label="操作"
                   width="100">
                   <template slot-scope="scope">
-                    <el-button type="text" size="small">撤单</el-button>
+                    <el-button type="text" size="small" @click="withdraw">撤单</el-button>
                   </template>
                 </el-table-column>
               </el-table>
@@ -98,7 +98,7 @@
                     label="操作"
                     width="100">
                     <template slot-scope="scope">
-                      <el-button type="text" size="small">撤单</el-button>
+                      <el-button type="text" size="small" @click="withdraw">撤单</el-button>
                     </template>
                   </el-table-column>
                   <el-table-column prop="ncomplate" label="手续费" width="80"></el-table-column>
@@ -127,17 +127,24 @@ export default {
         ncomplate: '0.9000',
         state: '已完成'
       }],
+      // 日期
       pickerOptions1: {
-          disabledDate(time) {
-            return time.getTime() > Date.now()
-          },
-        },
-        value2: ''
+        disabledDate (time) {
+          return time.getTime() > Date.now()
+        }
+      },
+      value2: ''
     }
   },
   methods: {
     handleClick (tab, event) {
       console.log(tab, event)
+    },
+    withdraw () {
+      this.$message({
+        message: '撤单成功',
+        type: 'success'
+      })
     }
   }
 }

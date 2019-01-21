@@ -12,7 +12,8 @@
             <p>6,66325785</p>
           </div>
           <div class="exchange-assets-total-btn fr">
-             <input type="text" placeholder="请输入币种"><img src="../../assets/Images/Search.png" alt="">
+             <input type="text" placeholder="请输入币种" v-model="search">
+             <img src="../../assets/Images/Search.png" alt="">
              <router-link to="mention-details">
                 <el-button type="primary" size="mini">充提明细</el-button>
              </router-link>
@@ -23,10 +24,10 @@
       </div>
       <!-- 表格部分 -->
       <div class="exchange-assets-table">
-          <el-table :data="tableData">
-              <el-table-column prop="date" label="币种"></el-table-column>
-              <el-table-column  prop="name" label="可用"></el-table-column>
-              <el-table-column prop="address" label="冻结"></el-table-column>
+          <el-table :data="tableData.filter(data => !search || data.currency.toLowerCase().includes(search.toLowerCase())||data.available.toLowerCase().includes(search.toLowerCase())||data.frozen.toLowerCase().includes(search.toLowerCase()))">
+              <el-table-column prop="currency" label="币种"></el-table-column>
+              <el-table-column  prop="available" label="可用"></el-table-column>
+              <el-table-column prop="frozen" label="冻结"></el-table-column>
               <el-table-column
               fixed="right"
               label="操作"
@@ -53,14 +54,15 @@ export default {
   data () {
     return {
       tableData: [{
-        date: 'BTC',
-        name: '1.23569874',
-        address: '1.00000000'
+        currency: 'BTC',
+        available: '1.23569874',
+        frozen: '1.00000000'
       }, {
-        date: 'USDT',
-        name: '99,365.12',
-        address: '0.12000000'
-      }]
+        currency: 'USDT',
+        available: '99,365.12',
+        frozen: '0.12000000'
+      }],
+      search: ''
     }
   },
   methods: {
