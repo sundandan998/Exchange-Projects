@@ -6,7 +6,7 @@
     </div>
     <div class="order-form-tabs">
       <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
-        <el-tab-pane label="用户管理" name="first">
+        <el-tab-pane label="当前委托" name="first">
           <div class="order-form-tabs-title">
             <span>交易对:</span>
             <select>
@@ -48,7 +48,7 @@
               </el-table>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="配置管理" name="second">
+        <el-tab-pane label="交易明细" name="second">
             <div class="order-form-tabs-configure-title">
                 <span>交易对:</span>
                 <select>
@@ -71,7 +71,14 @@
                   <option value="">部分成交</option>
                 </select>
                 <span>委托单号</span> <input type="text">
-                <span>交易时间</span> <input type="text">
+                <span class="demonstration">交易时间</span>
+                <el-date-picker
+                  class="exchange-date"
+                  v-model="value2"
+                  type="date"
+                  placeholder="选择日期"
+                  :picker-options="pickerOptions1">
+                </el-date-picker>
                 <el-button size="mini" type="primary">搜索</el-button>
                 <el-button size="mini" type="primary">重置</el-button>
               </div>
@@ -119,8 +126,14 @@ export default {
         complate: '0.100',
         ncomplate: '0.9000',
         state: '已完成'
-      }
-      ]}
+      }],
+      pickerOptions1: {
+          disabledDate(time) {
+            return time.getTime() > Date.now()
+          },
+        },
+        value2: ''
+    }
   },
   methods: {
     handleClick (tab, event) {

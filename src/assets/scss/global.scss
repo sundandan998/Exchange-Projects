@@ -259,6 +259,12 @@ $coin-bgc:#fff;
 .order-form-configure-usdt{
   margin-left: -10px;
 }
+.el-date-editor.el-input, .el-date-editor.el-input__inner{
+  width: 145px;
+}
+.el-input__icon{
+  line-height: 0;
+}
 // -------------------------------------------------公告中心---------------------------------
 .notice-center{
   width: 900px;

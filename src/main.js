@@ -4,11 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+// import locale from 'element-ui/lib/locale/lang/en'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
 require('./mock.js')
 Vue.use(ElementUI)
+// Vue.use(ElementUI, { locale })
 Vue.use(VueAxios, axios)
 Vue.prototype.$ajax = axios
 Vue.config.productionTip = false
