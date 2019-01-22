@@ -14,7 +14,7 @@
             <el-menu-item index="logo">
               <img src="../../assets/Images/logo.png" alt="">
             </el-menu-item>
-            <el-menu-item index="home">首页</el-menu-item>
+            <el-menu-item index="home" @click="home">首页</el-menu-item>
             <el-menu-item index="center" @click="notice">公告中心</el-menu-item>
             <el-menu-item index="transaction" @click="coin" >币币交易</el-menu-item>
             <div class="exchange-header">
@@ -49,6 +49,10 @@ export default {
     }
   },
   methods: {
+    // 跳转首页
+    home () {
+      this.$router.push('/home')
+    },
     // 跳转注册页面
     register () {
       this.$router.push('/register')
