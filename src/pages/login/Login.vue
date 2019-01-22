@@ -92,6 +92,8 @@ export default {
           type: 'success',
           message: '登录成功!'
         })
+        // 实时刷新页面
+        this.$router.go(0)
       }
     }
     // reset () {

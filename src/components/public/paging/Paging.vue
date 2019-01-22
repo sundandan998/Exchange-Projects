@@ -4,10 +4,10 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="currentPage4"
-      :page-sizes="[100, 200, 300, 400]"
+      :page-sizes="[1, 2, 3, 4]"
       :page-size="100"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="400">
+      :total="20">
     </el-pagination>
   </div>
 </template>
@@ -15,10 +15,10 @@
 export default {
   data () {
     return {
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4
+      // currentPage1: 5,
+      // currentPage2: 5,
+      // currentPage3: 5,
+      // currentPage4: 4
     }
   },
   methods: {

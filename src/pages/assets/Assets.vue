@@ -24,14 +24,12 @@
       </div>
       <!-- 表格部分 -->
       <div class="exchange-assets-table">
-          <el-table :data="tableData.filter(data => !search || data.currency.toLowerCase().includes(search.toLowerCase())||data.available.toLowerCase().includes(search.toLowerCase())||data.frozen.toLowerCase().includes(search.toLowerCase()))">
+          <el-table
+          :data="tableData.filter(data => !search || data.currency.toLowerCase().includes(search.toLowerCase())||data.available.toLowerCase().includes(search.toLowerCase())||data.frozen.toLowerCase().includes(search.toLowerCase()))">
               <el-table-column prop="currency" label="币种"></el-table-column>
               <el-table-column  prop="available" label="可用"></el-table-column>
               <el-table-column prop="frozen" label="冻结"></el-table-column>
-              <el-table-column
-              fixed="right"
-              label="操作"
-              width="100">
+              <el-table-column fixed="right" label="操作" width="100">
               <template slot-scope="scope">
                 <router-link to="coin-charging">
                     <el-button type="text" size="small">充币</el-button>

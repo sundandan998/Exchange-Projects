@@ -13,15 +13,11 @@ export default {
     return {
     }
   },
+  methods: {
+  },
   components: {
     'app-header': Header,
     'app-footer': Footer
-  },
-  methods: {
-    // 是否显示头部
-    // public_header: function (bool) {
-    //   this.header_show = false
-    // }
   }
 }
 </script>
@@ -38,9 +34,6 @@ export default {
   }
   body{
     background-color: #F2F2F2;
-    /* width: 980;
-    height: 100%;
-    background: url(assets/Images/bj1.jpg) no-repeat; */
   }
   .fl{
     float: left;
