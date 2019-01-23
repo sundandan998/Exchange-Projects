@@ -14,24 +14,24 @@
         <el-step title="3、备份密钥"></el-step>
         <el-step title="4、开启谷歌验证"></el-step>
       </el-steps>
-      <div class="exchange-mine-open-google-step-one" v-if="one" >
+      <div class="exchange-mine-open-google-step-one" v-if="active===0">
         <p>下载并安装谷歌验证器APP</p>
         <ul>
           <li><img src="../../../assets/Images/step (1).png" alt=""></li>
           <li><img src="../../../assets/Images/step (1).png" alt=""></li>
         </ul>
       </div>
-      <div class="exchange-mine-open-google-step-one" v-if="two" active="1">
+      <div class="exchange-mine-open-google-step-one" v-if="active===1">
           <p>a、按谷歌验证器APP提示扫描二维码</p>
           <img src="../../../assets/Images/ewm.png" alt="">
           <p>b、如无法扫描，请将如下16位密钥填入谷歌验证器APP</p>
           <span class="exchange-mine-open-google-step-key">DFDIFMDOMIOIFGODIFDS</span>
       </div>
-      <div class="exchange-mine-open-google-step-one" v-if="three" active="2">
+      <div class="exchange-mine-open-google-step-one" v-if="active===2">
           <p>为防止手机丢失/更换/谷歌验证器APP 卸载，请将密钥保存至他人无法获取的安全地方，<br> 使用该密钥可恢复谷歌验证器绑定</p>
           <span class="exchange-mine-open-google-step-key">DFDIFMDOMIOIFGODIFDS</span>
       </div>
-      <div class="exchange-mine-open-google-step-one" v-if="four" active="3">
+      <div class="exchange-mine-open-google-step-one" v-if="active===3">
         <el-form-item prop="pass" label="登录密码" class="exchange-mine-open-google-item">
           <el-input type="password" v-model="verification.pass" autocomplete="off" class="exchange-mine-open-google-input"></el-input>
         </el-form-item>
@@ -64,10 +64,6 @@ export default {
     }
     return {
       active: 0,
-      one: true,
-      two: false,
-      three: false,
-      four: false,
       verification: {
         pass: '',
         checkPass: ''
