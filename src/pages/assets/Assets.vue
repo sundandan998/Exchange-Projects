@@ -1,7 +1,7 @@
 <template>
   <!-- 标题部分 -->
   <div class="exchange-assets">
-    <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-from">
+    <el-form ref="form" label-width="100px" class="exchange-assets-from">
       <div class="exchange-assets-title">
           <h2>资产</h2>
           <div class="exchange-assets-line"></div>

@@ -16,6 +16,7 @@ $coin-bgc:#fff;
 .el-aside {
   background-color: $coin-bgc;
   padding-left: 5px;
+  color:#000;
 }
 .coin-aside-top-title{
   margin:5px 0px 10px 0px;
@@ -305,8 +306,7 @@ $coin-bgc:#fff;
     text-indent: 1em;
     font-size: 12px;
     position: relative;
-    left: 560px;
-    top: 25px;
+    left: 555px;
   }
   span{
     font-size:12px;
@@ -314,7 +314,7 @@ $coin-bgc:#fff;
   img{
     position: relative;
     left: 520px;
-    top: 28px;
+    top:5 px;
   }
 }
 .notice-center-text{
