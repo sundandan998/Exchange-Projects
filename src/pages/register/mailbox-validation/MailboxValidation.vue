@@ -4,7 +4,7 @@
         <h1>邮箱验证</h1>
       </div>
       <div class="exchange-mailboxvalidation-info">
-        <span>xx已向您的注册邮箱 1479553370@qq.com发送了一封验证邮件，请按邮件中的提示完成重置登录密码。</span>
+        <span>xx已向您的注册邮箱 <p>1479553370@qq.com</p> 发送了一封验证邮件，请按邮件中的提示完成重置登录密码。</span>
       </div>
       <div class="exchange-mailboxvalidation-explain">
         <ul>
@@ -44,13 +44,21 @@ export default {
   }
   .exchange-mailboxvalidation-info span{
     display: inline-block;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 1px solid #ccc;
     margin:10px 50px 0 50px;
     padding-bottom: 15px;
+    font-size: 14px;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .exchange-mailboxvalidation-info p{
+    display: inline-block;
+    font-size: 16px;
   }
   .exchange-mailboxvalidation-title h1{
     font-weight: 400;
     padding:50px 0 20px 0px;
+    font-size: 22px;
   }
   .exchange-mailboxvalidation-explain{
     margin:10px 0px 0px 50px;
@@ -64,5 +72,6 @@ export default {
     float: right;
     margin:50px 50px 0 0;
     border:none;
+    font-size:12px;
   }
 </style>

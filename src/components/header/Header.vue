@@ -9,10 +9,10 @@
             mode="horizontal"
             background-color="#545c64"
             text-color="#fff"
-            active-text-color="#ffd04b">
-            <el-menu-item index="logo">
-              <img src="../../assets/Images/logo.png" alt="">
-            </el-menu-item>
+            active-text-color="#409EFF">
+            <div class="exchange-logo">
+                <img src="../../assets/Images/logo.png" alt="">
+            </div>
             <el-menu-item index="home" @click="home">首页</el-menu-item>
             <el-menu-item index="center" @click="notice">公告中心</el-menu-item>
             <el-menu-item index="transaction" @click="coin" >币币交易</el-menu-item>
@@ -84,6 +84,13 @@ export default {
 }
 </script>
 <style>
+  :focus {
+    outline: 0;
+}
+  .exchange-logo {
+    float: left;
+    display: inline-block;
+}
   .exchange-header{
     float: right;
     display: -webkit-inline-box;

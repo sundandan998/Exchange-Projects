@@ -26,7 +26,7 @@
       </div>
       <el-tabs v-model="activeName" @tab-click="handleClick" class="exchange-assets-from-tabs">
           <el-tab-pane label="用户管理" name="first">
-            <el-table :data="tableData">
+            <el-table :data="tableData" class="mention-details-table">
               <el-table-column prop="date" label="时间"></el-table-column>
               <el-table-column  prop="name" label="币种"></el-table-column>
               <el-table-column prop="number" label="数量"></el-table-column>
@@ -96,8 +96,21 @@ export default {
   .exchange-assets-from-select{
     margin-left: 460px;
   }
+  .exchange-assets-from-select span{
+    font-size: 12px;
+  }
   .exchange-assets-from-select select{
-    height: 26px;
+    height: 20px;
     margin-right: 30px;
+    font-size: 12px;
+  }
+  .mention-details-table th{
+    font-size: 12px;
+    font-weight: 400;
+    color:#999;
+  }
+  .mention-details-table td{
+    font-size: 12px;
+    color:#000;
   }
 </style>

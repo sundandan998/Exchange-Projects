@@ -34,7 +34,7 @@
         <span>地址列表</span>
         <div class="exchange-assets-line"></div>
         <div class="exchange-assets-address-table">
-            <el-table :data="tableData">
+            <el-table :data="tableData" class="exchange-address-table">
                 <el-table-column prop="currency" label="币种" width="100"></el-table-column>
                 <el-table-column  prop="address" label="提币地址" width="400"></el-table-column>
                 <el-table-column prop="remarks" label="备注"></el-table-column>
@@ -107,6 +107,10 @@ export default {
   .exchange-assets-from-select select{
     height: 26px;
     margin-right: 30px;
+    font-size: 12px;
+  }
+  .exchange-assets-address-list{
+    font-size: 14px;
   }
   .exchange-assets-address-alert{
     margin-bottom: 30px;
@@ -136,5 +140,13 @@ export default {
     width: 200px;
     margin-top: 30px;
     margin-left: 60px;
+  }
+  .exchange-address-table th{
+    font-size:12px;
+    color:#999;
+  }
+  .exchange-address-table td{
+    font-size:12px;
+    color:#000;
   }
 </style>

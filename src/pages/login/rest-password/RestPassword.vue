@@ -82,6 +82,7 @@ export default {
     .exchange-restpassword-title h1{
       font-weight: 400;
       padding:50px 0 50px 0px;
+      font-size: 22px;
     }
     .exchange-input-checkbox span{
       color:#666;

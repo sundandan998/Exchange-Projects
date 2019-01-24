@@ -4,13 +4,14 @@
       <h1>登录</h1>
     </div>
     <el-form-item prop="email">
-      <el-input v-model="verification.email" class="exchange-login-input" placeholder="邮箱"></el-input>
+          <!-- <img src="../../assets/Images/email.png" alt=""> -->
+      <el-input v-model="verification.email" class="exchange-login-input"></el-input>
     </el-form-item>
     <el-form-item prop="pass">
-      <el-input type="password" v-model="verification.pass" autocomplete="off" placeholder="密码" class="exchange-login-input"></el-input>
+      <el-input type="password" v-model="verification.pass" autocomplete="off" class="exchange-login-input"></el-input>
     </el-form-item>
     <el-form-item prop="verificationcode">
-      <el-input placeholder="图片验证码" class="exchange-login-input-pic" v-model="VerificationCode"></el-input>
+      <el-input class="exchange-login-input-pic" v-model="VerificationCode"></el-input>
       <el-input type="" readonly="readonly" @click="createCode"  class="exchange-login-input-pic" v-model="checkCode"></el-input>
     </el-form-item>
     <div class="exchange-input-checkbox">

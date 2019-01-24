@@ -24,7 +24,7 @@
       </div>
       <!-- 表格部分 -->
       <div class="exchange-assets-table">
-          <el-table
+          <el-table class="assets-table" 
           :data="tableData.filter(data => !search || data.currency.toLowerCase().includes(search.toLowerCase())||data.available.toLowerCase().includes(search.toLowerCase())||data.frozen.toLowerCase().includes(search.toLowerCase()))">
               <el-table-column prop="currency" label="币种"></el-table-column>
               <el-table-column  prop="available" label="可用"></el-table-column>
@@ -87,6 +87,12 @@ export default {
     margin:20px auto;
     overflow: hidden;
   }
+  .exchange-assets-title h2{
+    font-size: 16px;
+  }
+  .exchange-assets-total-data span{
+    font-size: 12px;
+  }
   .exchange-assets-line{
     width: 800px;
     height: 1px;
@@ -111,7 +117,16 @@ export default {
     margin-right: 10px;
 }
 .exchange-assets-table{
-  margin-top: 110px;
+   margin-top: 100px;
+}
+.assets-table th{
+    font-size: 12px;
+    font-weight: 400;
+    color:#999;
+  }
+.assets-table td{
+  font-size: 12px;
+  color:#000;
 }
 .exchange-assets-total-btn img{
  position: relative;

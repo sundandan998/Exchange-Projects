@@ -23,6 +23,7 @@ $coin-bgc:#fff;
   h3{
     margin-bottom: 10px;
     font-weight: 400;
+    font-size: 14px;
   }
 }
 .coin-aside-line{
@@ -50,6 +51,7 @@ $coin-bgc:#fff;
   span{
     margin: 10px 55px 10px 0;
     font-size: 12px;
+    color:#999;
   }
   p{
     display: -webkit-inline-box;
@@ -69,12 +71,14 @@ $coin-bgc:#fff;
   }
   .coin-aside-bottom-title h3{
     font-weight: normal;
+    font-size: 14px;
   }
 .coin-aside-bottom-data{
   margin:10px 0 50px 0;
   span{
     margin: 10px 40px 10px 0;
     font-size: 12px;
+    color:#999;
   }
   p{
     display: -webkit-inline-box;
@@ -95,12 +99,21 @@ $coin-bgc:#fff;
     height: 300px;
   }
 }
+.coin-main-top-img{
+  img{
+    width: 20px;
+    height: 20px;
+  }
+}
 .coin-main-bottom-left{
   h4{
     color:red;
     margin:10px 0 10px 0;
     font-weight: 400;
     font-size: 14px;
+  }
+  h3{
+    font-size:14px;
   }
   span{
     font-size: 12px;
@@ -125,6 +138,8 @@ $coin-bgc:#fff;
   }
   button{
     width: 380px;
+    background-color: #05C19E;
+    border:none;
   }
 }
 .coin-main-line{
@@ -141,6 +156,9 @@ $coin-bgc:#fff;
     font-weight: 400;
     font-size: 14px;
   }
+  h3{
+    font-size:14px;
+  }
   span{
     font-size: 12px;
   }
@@ -164,16 +182,19 @@ $coin-bgc:#fff;
   }
   button{
     width: 380px;
+    background-color: #E04545;
   }
 }
 .coin-aside-right-title h3{
   font-weight: normal;
+  font-size: 14px;
 }
 .coin-aside-right-data{
   margin:10px 0 50px 0;
   span{
     margin: 10px 60px 0px 8px;
     font-size: 12px;
+    color: #999;
   }
   p{
     display: -webkit-inline-box;
@@ -184,10 +205,12 @@ $coin-bgc:#fff;
       }
   }
   h3{
-    color:red;
+   color:#E04545;
     text-align: center;
     line-height: 35px;
     margin-top: 5px;
+    font-weight: 400;
+    font-size: 16px;
   }
 }
 .coin-footer{
@@ -196,12 +219,18 @@ $coin-bgc:#fff;
   h3{
     float: left;
     margin:10px 0 10px 0;
+    font-size: 14px;
+    font-weight: 400;
   }
+}
+.exchange-table{
+  font-size:12px;
+  color: #000;
 }
 .coin-entrust{
   float: right;
   margin:10px 60px 0 0;
-  font-size:14px;
+  font-size:12px;
   color:#409EFF;
 }
 // -------------------------------------------------委托单页面----------------------

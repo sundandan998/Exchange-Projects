@@ -22,7 +22,7 @@
       <el-input type="" readonly="readonly" @click="createCode"  class="exchange-register-input-pic" v-model="checkCode"></el-input>
     </el-form-item>
     <div class="exchange-input-checkbox">
-      <input type="checkbox"> <span>同一用户协议</span>
+      <input type="checkbox"> <span>同意用户协议</span>
     </div>
     <el-form-item class="exchange-register-button">
       <router-link to="/mailbox-validation">
@@ -128,9 +128,11 @@ export default {
 .exchange-register-title h1{
   font-weight: 400;
   padding:20px 0 20px 0px;
+  font-size: 22px;
 }
 .exchange-input-checkbox span{
   color:#666;
+  font-size: 12px;
 }
 .exchange-register-button button{
   width: 300px;
@@ -145,6 +147,7 @@ export default {
 }
 .exchange-register-footer-button-text{
   color:#409EFF;
+  font-size: 12px;
 }
 .exchange-register-button button{
   background-color: #ccc;

@@ -91,6 +91,12 @@
       </el-aside>
       <el-main>
         <div class="coin-main-top">
+            <div class="coin-main-top-img">
+              <img src="../../assets/Images/moon.png" alt="">
+              <router-link to="currency-trading">
+                  <img src="../../assets/Images/sun-w.png" alt="">
+              </router-link>
+            </div>
           <img src="../../assets/Images/kb.png" alt="">
         </div>
         <div>
@@ -400,6 +406,10 @@ export default {
 .coin-main-top img{
   width: 860px;
   height: 300px;
+}
+.coin-main-top-img img{
+  width: 20px;
+  height: 20px;
 }
 .coin-main-bottom-left h4{
     color:red;

@@ -13,15 +13,24 @@
   margin-left: 100px;
   margin-bottom: 10px;
 }
+.exchange-login-icons img{
+  position: relative;
+  top: 30px;
+  left: 2px;
+  display: block;
+  z-index: 1;
+}
 .exchange-login-title{
   text-align: center;
 }
 .exchange-login-title h1{
   font-weight: 400;
   padding:30px 0 30px 0px;
+  font-size:22px;
 }
 .exchange-input-checkbox span{
   color:#666;
+  font-size: 12px;
 }
 .exchange-login-button button{
   width: 300px;
@@ -31,6 +40,7 @@
 }
 .exchange-login-footer-button-text{
   color:#409EFF;
+  font-size: 12px;
 }
 .exchange-login-footer-button :last-child{
   float: right;

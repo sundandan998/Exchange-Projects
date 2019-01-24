@@ -91,6 +91,10 @@
       </el-aside>
       <el-main>
         <div class="coin-main-top">
+          <div class="coin-main-top-img">
+            <img src="../../assets/Images/moon-b.png" alt="" @click="jumpPage">
+            <img src="../../assets/Images/sun.png" alt="">
+          </div>
           <img src="../../assets/Images/k.png" alt="">
         </div>
         <div class="coin-main-bottom">
@@ -98,9 +102,9 @@
             <el-tab-pane label="限价">
               <div class="coin-main-bottom-left fl">
                   <h3>买入</h3>
-                  <h4>可用6.6523 USDT</h4>
-                  <span>买入价:</span> <input type="text"> USDT<br>
-                  <span>买入量:</span> <input type="text"> BTC
+                  <!-- <h4>可用6.6523 USDT</h4> -->
+                  <span>买入价:</span> <input type="text">&nbsp;<span>USDT</span><br>
+                  <span>买入量:</span> <input type="text">&nbsp;<span>BTC</span>
                   <ul>
                     <li>25%</li>
                     <li>50%</li>
@@ -114,9 +118,9 @@
               <div class="coin-main-line"></div>
               <div class="coin-main-bottom-right fr">
                   <h3>卖出</h3>
-                  <h4>可用6.6523 BTC</h4>
-                  <span>卖出价:</span> <input type="text"> USDT<br>
-                  <span>卖出量:</span> <input type="text"> BTC
+                  <!-- <h4>可用6.6523 BTC</h4> -->
+                  <span>卖出价:</span> <input type="text">&nbsp;<span>USDT</span><br>
+                  <span>卖出量:</span> <input type="text">&nbsp;<span>BTC</span>
                   <ul>
                     <li>25%</li>
                     <li>50%</li>
@@ -131,9 +135,9 @@
             <el-tab-pane label="市价">
                 <div class="coin-main-bottom-left fl">
                     <h3>买入</h3>
-                    <h4>可用6.6523 USDT</h4>
-                    <span>买出价:</span> 市价 <br>
-                    <span>买入量:</span> <input type="text"> BTC
+                    <!-- <h4>可用6.6523 USDT</h4> -->
+                    <span>买出价:</span> <span>市价</span><br>
+                    <span>买入量:</span> <input type="text"> <span>BTC</span>
                     <ul>
                       <li>25%</li>
                       <li>50%</li>
@@ -147,9 +151,9 @@
                 <div class="coin-main-line"></div>
                 <div class="coin-main-bottom-right fr">
                     <h3>卖出</h3>
-                    <h4>可用6.6523 BTC</h4>
-                    <span>卖出价:</span> 市价<br>
-                    <span>卖出量:</span> <input type="text"> BTC
+                    <!-- <h4>可用6.6523 BTC</h4> -->
+                    <span>卖出价:</span> <span>市价</span><br>
+                    <span>卖出量:</span> <input type="text"> <span>BTC</span>
                     <ul>
                       <li>25%</li>
                       <li>50%</li>
@@ -226,7 +230,7 @@
     <el-footer>
       <div class="coin-footer">
         <h3>当前委托</h3>
-          <el-table :data="tableData">
+          <el-table :data="tableData" class="exchange-table">
             <el-table-column prop="date" label="委托时间" width="180"></el-table-column>
             <el-table-column prop="pairs" label="交易对" width="180"></el-table-column>
             <el-table-column prop="direction" label="方向" width="120"></el-table-column>
@@ -249,7 +253,7 @@
               <h3>历史委托(近7天)</h3>
               <router-link to="/order-form" class="coin-entrust">所有委托</router-link>
           </template>
-          <el-table :data="tableData">
+          <el-table :data="tableData" class="exchange-table">
             <el-table-column prop="date" label="委托时间" width="180"></el-table-column>
             <el-table-column prop="pairs" label="交易对" width="180"></el-table-column>
             <el-table-column prop="direction" label="方向" width="120"></el-table-column>
@@ -301,6 +305,12 @@ export default {
         ncomplate: '0.9000',
         state: '已完成'
       }]
+    }
+  },
+  methods: {
+    jumpPage () {
+      this.$router.push('/home')
+      this.$router.go(0)
     }
   }
 }

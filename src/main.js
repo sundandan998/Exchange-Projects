@@ -7,11 +7,12 @@ import ElementUI from 'element-ui'
 import VueI18n from 'vue-i18n'
 // import enLocale from 'element-ui/lib/locale/lang/en'
 // import zhLocale from 'element-ui/lib/locale/lang/zh-CN's
-// import locale from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale/lang/en'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
 require('./mock.js')
+Vue.use(ElementUI, { locale })
 Vue.use(ElementUI)
 Vue.use(VueI18n)
 // Vue.use(Element)
