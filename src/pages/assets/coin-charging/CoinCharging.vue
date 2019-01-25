@@ -1,10 +1,11 @@
 <template>
   <div class="exchange-assets">
-    <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-from">
-      <div class="exchange-assets-title">
-          <h2>资产>充币</h2>
-          <div class="exchange-assets-line"></div>
-      </div>
+    <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-coin-charging">
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/assets' }">资产</el-breadcrumb-item>
+        <el-breadcrumb-item>充币</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-assets-line"></div>
       <div class="exchange-assets-coin-address">
         <h4>方式一: 提币地址</h4>
         <p>16GGXHcXg4JMDCs12G1dV1GDLF1chd6RVD</p>
@@ -15,7 +16,7 @@
         <img src="../../../assets/Images/adress.png" alt="">
       </div>
       <div class="exchange-assets-coin-notice">
-        <h4>提币须知</h4>
+        <h4> <img src="../../../assets/Images/notice.png" alt="">  充币须知</h4>
         <p>• 该地址为USDT充币地址，请勿转入非USDT资产，否则资产将不可找回</p>
         <p>• 转入至上述地址后，需整个网络节点确认，6次网络确认后可到账。</p>
         <p>• 最小充币金额：100 USDT ，小于最小金额的充币将不会到账且无法退回</p>
@@ -52,8 +53,11 @@ export default {
 }
 </script>
 <style>
-  .exchange-assets-from{
+  .exchange-assets-coin-charging{
     margin:30px 50px 0px 50px;
+  }
+  .exchange-assets-coin-charging h4{
+    font-size:14px;
   }
   .exchange-assets{
     width: 900px;
@@ -62,14 +66,15 @@ export default {
     margin:20px auto;
     overflow: hidden;
   }
-  .exchange-assets-title {
-    margin-bottom: 30px;
+.el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
 }
   .exchange-assets-line{
     width: 800px;
     height: 1px;
     background-color: #ccc;
-    margin-top: 20px;
+    margin: 20px 0 20px 0;
   }
   .exchange-assets-coin-address p{
     width: 400px;
@@ -78,6 +83,7 @@ export default {
     margin: 15px 10px 10px 0;
     background-color: #ccc;
     display: inline-block;
+    font-size:12px;
   }
   .exchange-assets-coin-scan h4{
     margin:15px 0 15px 0;
@@ -86,7 +92,7 @@ export default {
     margin-top: 20px;
   }
   .exchange-assets-coin-notice p{
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 5px;
   }
 </style>

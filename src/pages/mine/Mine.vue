@@ -82,7 +82,7 @@ export default {
   }
   .exchange-mine-line{
     width: 600px;
-    height: 2px;
+    height: 1px;
     background-color: #ccc;
     margin-top: 10px;
   }
@@ -92,6 +92,12 @@ export default {
   .exchange-mine-input{
     width: 500px;
   }
+  label.el-form-item__label {
+    font-size: 12px;
+}
+input.el-input__inner {
+    font-size: 12px;
+}
   .exchange-mine-btn{
     position: relative;
     left: -70px;
@@ -105,7 +111,7 @@ export default {
     margin:30px 0px 20px 0px;
   }
   .exchange-mine-information span {
-    font-size:20px;
+    font-size:14px;
   }
   .exchange-mine-information h5{
     display: inline-block;
@@ -116,6 +122,7 @@ export default {
   }
   .exchange-mine h2{
     display: inline-block;
+    font-size: 14px;
   }
   .exchange-mine-information img{
    width: 25px;

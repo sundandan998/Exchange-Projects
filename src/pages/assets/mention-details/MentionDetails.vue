@@ -1,10 +1,10 @@
 <template>
   <div class="exchange-assets">
     <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-from">
-      <div class="exchange-assets-title">
-          <h2>资产>充提明细</h2>
-          <!-- <div class="exchange-assets-line"></div> -->
-      </div>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/assets' }">资产</el-breadcrumb-item>
+        <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+      </el-breadcrumb>
       <div class="exchange-assets-from-select">
           <span>状态:</span>
         <select>
@@ -34,7 +34,7 @@
             </el-table>
           </el-tab-pane>
           <el-tab-pane label="配置管理" name="second">
-              <el-table :data="tableData">
+              <el-table :data="tableData" class="mention-details-table">
                 <el-table-column prop="date" label="时间"></el-table-column>
                 <el-table-column  prop="name" label="币种"></el-table-column>
                 <el-table-column prop="number" label="数量"></el-table-column>
@@ -90,8 +90,9 @@ export default {
     margin:20px auto;
     overflow: hidden;
   }
-  .exchange-assets-title {
-    margin-bottom: 30px;
+.el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
 }
   .exchange-assets-from-select{
     margin-left: 460px;

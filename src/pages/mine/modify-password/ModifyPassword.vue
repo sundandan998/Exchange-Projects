@@ -1,10 +1,11 @@
 <template>
   <el-form :label-position="labelPosition" :model="verification" ref="verification" :rules="rules" label-width="110px" class="exchange-mine-setup">
     <div class="exchange-mine-setup-from">
-      <template>
-          <h2>我的>重置密码</h2>
-          <div class="exchange-mine-setup-line"></div>
-      </template>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/mine' }">我的</el-breadcrumb-item>
+        <el-breadcrumb-item>重置密码</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-mine-setup-line"></div>
       <div class="exchange-mine-setup-alert">
         <el-alert  description="为保证资产安全，请勿泄露手机验证码、登录密码、谷歌验证码、支付密码给任何人" title="" type="warning" show-icon  :closable="false"></el-alert>
       </div>
@@ -98,4 +99,14 @@ export default {
   .exchange-mine-setup-item{
     margin:40px 0 40px 0;
   }
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
+  }
+  label.el-form-item__label {
+    font-size: 12px;
+  }
+  .el-button{
+  font-size: 12px;
+}
 </style>

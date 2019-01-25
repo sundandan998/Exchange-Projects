@@ -31,6 +31,7 @@ export default {
   }
   a{
     text-decoration: none;
+    color:#fff;
   }
   body{
     background-color: #F2F2F2;

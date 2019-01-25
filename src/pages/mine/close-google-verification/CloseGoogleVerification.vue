@@ -1,10 +1,11 @@
 <template>
   <el-form :label-position="labelPosition" :model="verification" ref="verification" :rules="rules" label-width="100px" class="exchange-mine-close-google">
     <div class="exchange-mine-close-google-from">
-      <template>
-          <h2>我的>关闭谷歌验证</h2>
-          <div class="exchange-mine-close-google-line"></div>
-      </template>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/mine' }">我的</el-breadcrumb-item>
+        <el-breadcrumb-item>关闭谷歌验证</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-mine-close-google-line"></div>
       <div class="exchange-mine-close-google-alert">
         <el-alert  description="为保证资产安全，请勿泄露手机验证码、登录密码、谷歌验证码、支付密码给任何人" title="" type="warning" show-icon  :closable="false"></el-alert>
       </div>
@@ -40,7 +41,7 @@ export default {
   }
   .exchange-mine-close-google-line{
     width: 600px;
-    height: 2px;
+    height: 1px;
     background-color: #ccc;
     margin-top: 10px;
   }
@@ -61,5 +62,15 @@ export default {
   }
   .exchange-mine-close-google-send{
     width: 110px;
+  }
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
+  }
+  label.el-form-item__label {
+    font-size: 12px;
+  }
+  button.el-button.el-button--primary span {
+    font-size: 12px;
   }
 </style>

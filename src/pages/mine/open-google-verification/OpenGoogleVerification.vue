@@ -1,10 +1,11 @@
 <template>
   <el-form :model="verification" ref="verification" :rules="rules" label-width="100px" class="exchange-mine-open-google">
     <div class="exchange-mine-open-google-from">
-      <template>
-          <h2>我的>开启谷歌验证</h2>
-          <div class="exchange-mine-open-google-line"></div>
-      </template>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/mine' }">我的</el-breadcrumb-item>
+        <el-breadcrumb-item>开启谷歌验证</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-mine-open-google-line"></div>
       <div class="exchange-mine-open-google-alert">
         <el-alert  description="为保证资产安全，请勿泄露手机验证码、登录密码、谷歌验证码、支付密码给任何人" title="" type="warning" show-icon  :closable="false"></el-alert>
       </div>
@@ -102,7 +103,7 @@ export default {
   }
   .exchange-mine-open-google-line{
     width: 600px;
-    height: 2px;
+    height: 1px;
     background-color: #ccc;
     margin-top: 10px;
   }
@@ -123,6 +124,7 @@ export default {
   }
   .exchange-mine-open-google-step-one p{
    margin-bottom: 20px;
+   font-size: 12px;
   }
   .exchange-mine-open-google-step-line{
     width: 600px;
@@ -138,6 +140,7 @@ export default {
     display:inline-block;
     margin: 0 20px 0 350px;
     font-weight: 400;
+    font-size: 12px;
   }
   .exchange-mine-open-google-step-key{
     width: 400px;
@@ -146,6 +149,7 @@ export default {
     display: inline-block;
     text-align: center;
     line-height: 30px;
+    font-size: 12px;
   }
   .exchange-mine-open-google-input{
     width: 500px;
@@ -153,4 +157,21 @@ export default {
   .exchange-mine-open-google-item{
     margin:10px 0 50px 0;
   }
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
+  }
+  .el-step__title {
+    font-size: 12px;
+    line-height: 38px;
+  }
+  label.el-form-item__label {
+    font-size: 12px;
+  }
+  .el-button span{
+    font-size: 12px;
+  }
+  .el-button{
+  font-size: 12px;
+}
 </style>

@@ -7,6 +7,7 @@
             :default-active="activeIndex"
             class="el-menu-demo"
             mode="horizontal"
+            @select="handleSelect"
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#409EFF">
@@ -28,9 +29,8 @@
                 </template>
                 <el-submenu index="language" class="exchange-language">
                   <template slot="title">简体中文</template>
-                  <el-menu-item index="9-1">English</el-menu-item>
+                  <el-menu-item index="9-1">简体中文</el-menu-item>
                   <el-menu-item index="9-2">English</el-menu-item>
-                  <el-menu-item index="9-3">English</el-menu-item>
                 </el-submenu>
             </div>
           </el-menu>
@@ -79,6 +79,9 @@ export default {
     // 跳转公告中心页面
     notice () {
       this.$router.push('/notice-center')
+    },
+    handleSelect (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
 }
@@ -97,9 +100,8 @@ export default {
     display: -ms-flexbox;
   }
   .exchange-header li{
-    border-bottom:2px solid;
-    top: 2px;
     height: 100%;
+    display:inline-block;
   }
   .exchange-header li:last-child{
     border-bottom:none;

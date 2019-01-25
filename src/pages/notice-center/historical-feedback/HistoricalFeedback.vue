@@ -1,7 +1,11 @@
 <template>
   <div class="notice-center-problem">
     <div class="notice-center-problem-title">
-      <h3>公告中心>历史反馈</h3>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/notice-center' }">公告中心</el-breadcrumb-item>
+        <el-breadcrumb-item>历史反馈</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="notice-center-problem-line"></div>
     </div>
     <div class="notice-center-histor-describe">
       <ul>

@@ -1,10 +1,11 @@
 <template>
   <div class="exchange-assets">
     <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-from">
-      <div class="exchange-assets-title">
-          <h2>资产>提币地址管理</h2>
-          <div class="exchange-assets-line"></div>
-      </div>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/assets' }">资产</el-breadcrumb-item>
+        <el-breadcrumb-item>提币地址管理</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-assets-line"></div>
       <div class="exchange-assets-address-alert">
           <el-alert  description="为保证资产安全，请勿泄露手机验证码、登录密码、谷歌验证码、支付密码给任何人" title="" type="warning" show-icon  :closable="false"></el-alert>
         </div>
@@ -98,8 +99,15 @@ export default {
     margin:20px auto;
     overflow: hidden;
   }
-  .exchange-assets-title {
-    margin-bottom: 30px;
+  .exchange-assets-line{
+    width: 800px;
+    height: 1px;
+    background-color: #ccc;
+    margin:20px 0 20px 0;
+  }
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
 }
   .exchange-assets-from-select{
     margin-bottom: 10px;

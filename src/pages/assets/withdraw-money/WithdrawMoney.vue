@@ -1,10 +1,11 @@
 <template>
   <div class="exchange-assets">
-    <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-from">
-      <div class="exchange-assets-title">
-          <h2>资产>提币</h2>
-          <div class="exchange-assets-line"></div>
-      </div>
+    <el-form ref="form" label-width="100px" :label-position="labelPosition" class="exchange-assets-withdraw-money">
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/assets' }">资产</el-breadcrumb-item>
+        <el-breadcrumb-item>提币</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-assets-line"></div>
       <div class="exchange-assets-withmoney-address">
         <h4>提币地址</h4>
         <select>
@@ -25,7 +26,7 @@
         </ul>
       </div>
       <div class="exchange-assets-withmoney-notice">
-        <h4>提币须知</h4>
+        <h4> <img src="../../../assets/Images/notice.png" alt=""> 提币须知</h4>
         <p>• 最小提币金额为:0.002 USDT，小于最小提币金额将不会到账且无法退回</p>
         <p>• 您可在资产-充提明细查看提币进度</p>
         <p>• 24H提币额度为100USDT，超过无法提币</p>
@@ -46,8 +47,11 @@ export default {
 }
 </script>
 <style>
-  .exchange-assets-from{
+  .exchange-assets-withdraw-money{
     margin:30px 50px 0px 50px;
+  }
+  .exchange-assets-withdraw-money h4{
+    font-size:14px;
   }
   .exchange-assets{
     width: 900px;
@@ -56,22 +60,27 @@ export default {
     margin:20px auto;
     overflow: hidden;
   }
-  .exchange-assets-title {
-    margin-bottom: 30px;
-}
 .exchange-assets-line{
   width: 800px;
   height: 1px;
   background-color: #ccc;
-  margin-top: 20px;
+  margin: 20px 0 20px 0;
 }
 .exchange-assets-withmoney-address select{
   width: 500px;
   height: 40px;
   margin: 10px 0px 10px 0px;
+  font-size: 12px;
+}
+.el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
 }
 .exchange-assets-withmoney-num {
     margin: 30px 0 20px 0px;
+}
+.exchange-assets-withmoney-num span{
+  font-size: 14px;
 }
 .exchange-assets-withmoney-num input{
   width: 500px;
@@ -82,23 +91,24 @@ export default {
     height: 90px;
 }
 .exchange-assets-withmoney-interest span{
-  font-size:14px;
-  font-weight: 700;
-  margin-right: 175px;
+  font-size:12px;
+  margin-right: 165px;
 }
 .exchange-assets-withmoney-interest b{
-  margin-left: 35px;
+  margin-left: 40px;
+  font-weight: 400;
 }
 .exchange-assets-withmoney-interest li{
-  width: 120px;
+  width: 100px;
   height: 30px;
   background-color: #ccc;
   float: left;
   margin:5px 100px 0 0;
   line-height: 30px;
+  font-size: 12px;
 }
 .exchange-assets-withmoney-notice p{
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 5px;
 }
 </style>

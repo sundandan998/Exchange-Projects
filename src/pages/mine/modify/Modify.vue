@@ -1,10 +1,11 @@
 <template>
   <el-form :label-position="labelPosition" :model="verification" ref="verification" :rules="rules" label-width="100px" class="exchange-mine-modify">
     <div class="exchange-mine-modify-from">
-      <template>
-        <h2>我的>修改登录密码</h2>
-        <div class="exchange-mine-modify-line"></div>
-      </template>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/mine' }">我的</el-breadcrumb-item>
+        <el-breadcrumb-item>修改登录密码</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-mine-modify-line"></div>
       <div class="exchange-mine-modify-alert">
         <el-alert  description="为保证资金安全，登录密码修改后24H内无法提币" title="" type="warning" show-icon  :closable="false"></el-alert>
       </div>
@@ -86,7 +87,7 @@ export default {
   }
   .exchange-mine-modify-line{
     width: 600px;
-    height: 2px;
+    height: 1px;
     background-color: #ccc;
     margin-top: 10px;
   }
@@ -106,4 +107,8 @@ export default {
   .exchange-mine-modify-item{
     margin:40px 0 40px 0;
   }
+.el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
+}
 </style>

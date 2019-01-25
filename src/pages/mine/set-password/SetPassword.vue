@@ -2,10 +2,11 @@
 <template>
   <el-form :label-position="labelPosition" :model="verification" ref="verification" :rules="rules" label-width="110px" class="exchange-mine-setpassword">
     <div class="exchange-mine-setpassword-from">
-      <template>
-          <h2>我的>设置支付密码</h2>
-          <div class="exchange-mine-setpassword-line"></div>
-      </template>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/mine' }">我的</el-breadcrumb-item>
+        <el-breadcrumb-item>设置支付密码</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="exchange-mine-setpassword-line"></div>
       <div class="exchange-mine-setpassword-alert">
         <el-alert  description="为保证资产安全，请勿泄露手机验证码、登录密码、谷歌验证码、支付密码给任何人" title="" type="warning" show-icon  :closable="false"></el-alert>
       </div>
@@ -125,6 +126,7 @@ export default {
   }
   .exchange-mine-dislog-input p{
     margin:20px 0 10px 0;
+    font-size: 12px;
   }
   .exchange-mine-dislog-info{
     width: 395px;
@@ -135,4 +137,18 @@ export default {
   .exchange-mine-dislog-pass{
     width: 510px;
   }
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    font-weight: 700;
+    color: #000;
+  }
+  label.el-form-item__label {
+    font-size: 12px;
+  }
+  .el-input__inner {
+    border-color: #c0c4cc;
+    font-size: 12px;
+}
+.el-button{
+  font-size: 12px;
+}
 </style>

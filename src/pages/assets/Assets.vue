@@ -24,7 +24,7 @@
       </div>
       <!-- 表格部分 -->
       <div class="exchange-assets-table">
-          <el-table class="assets-table" 
+          <el-table class="assets-table"
           :data="tableData.filter(data => !search || data.currency.toLowerCase().includes(search.toLowerCase())||data.available.toLowerCase().includes(search.toLowerCase())||data.frozen.toLowerCase().includes(search.toLowerCase()))">
               <el-table-column prop="currency" label="币种"></el-table-column>
               <el-table-column  prop="available" label="可用"></el-table-column>

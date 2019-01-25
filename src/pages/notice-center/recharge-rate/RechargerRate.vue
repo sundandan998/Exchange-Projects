@@ -1,9 +1,12 @@
 <template>
  <div class="recharge-rate">
-   <div class="recharge-rate-title">
-     <h3>公告中心>新手帮助</h3>
-     <el-button type="primary" size="mini">问题反馈</el-button>
-   </div>
+    <div class="notice-center-problem-title">
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/notice-center' }">公告中心</el-breadcrumb-item>
+        <el-breadcrumb-item>新手帮助</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="notice-center-problem-line"></div>
+    </div>
    <div class="recharge-rate-explain">
      <h2>交易所服务费说明</h2>
       <ul>

@@ -27,7 +27,7 @@
             <el-button size="mini" type="primary">重置</el-button>
           </div>
           <div class="order-form-tabs-table">
-              <el-table :data="tableData">
+              <el-table :data="tableData" class="order-form-tabs-table">
                   <el-table-column prop="oddnum" label="委托单号" width="130"></el-table-column>
                   <el-table-column prop="date" label="提交时间" width="150"></el-table-column>
                   <el-table-column prop="pairs" label="交易对" width="100"></el-table-column>
