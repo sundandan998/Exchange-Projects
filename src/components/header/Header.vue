@@ -102,6 +102,7 @@ export default {
   .exchange-header li{
     height: 100%;
     display:inline-block;
+    border-bottom: 2px solid;
   }
   .exchange-header li:last-child{
     border-bottom:none;

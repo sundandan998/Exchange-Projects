@@ -475,7 +475,7 @@ textarea.el-textarea__inner {
     display: block;
   }
   h2{
-    font-size:12px;
+    font-size:14px;
     font-weight: normal;
   }
 }
@@ -491,8 +491,9 @@ textarea.el-textarea__inner {
    margin-left: 20px;
  }
  h3{
-   margin-top: 20px;
-   font-size: 14px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 400;
  }
  router-link{
    color:#409EFF;

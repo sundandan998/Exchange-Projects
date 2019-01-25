@@ -4,15 +4,26 @@
       <h1>登录</h1>
     </div>
     <el-form-item prop="email">
-          <!-- <img src="../../assets/Images/email.png" alt=""> -->
-      <el-input v-model="verification.email" class="exchange-login-input"></el-input>
+      <el-input v-model="verification.email" class="exchange-login-input">
+        <i slot="prefix">
+          <img src="../../assets/Images/email.png" alt="">
+        </i>
+      </el-input>
     </el-form-item>
     <el-form-item prop="pass">
-      <el-input type="password" v-model="verification.pass" autocomplete="off" class="exchange-login-input"></el-input>
+      <el-input type="password" v-model="verification.pass" autocomplete="off" class="exchange-login-input">
+        <i slot="prefix">
+          <img src="../../assets/Images/pass.png" alt="">
+        </i>
+      </el-input>
     </el-form-item>
     <el-form-item prop="verificationcode">
-      <el-input class="exchange-login-input-pic" v-model="VerificationCode"></el-input>
-      <el-input type="" readonly="readonly" @click="createCode"  class="exchange-login-input-pic" v-model="checkCode"></el-input>
+      <el-input class="exchange-login-input-input" v-model="VerificationCode">
+          <i slot="prefix">
+            <img src="../../assets/Images/yzm.png" alt="">
+          </i>
+      </el-input>
+      <el-input type="" readonly="readonly" @click="createCode" class="exchange-login-input-pic" v-model="checkCode"></el-input>
     </el-form-item>
     <div class="exchange-input-checkbox">
       <input type="checkbox" v-on:click="changeColor(item)"> <span>记住账号</span>

@@ -9,16 +9,32 @@
         { required: true, message: '请输入邮箱地址', trigger: 'blur' },
         { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
       ]">
-      <el-input v-model="verification.email" class="exchange-register-input" placeholder="邮箱"></el-input>
+      <el-input v-model="verification.email" class="exchange-register-input">
+        <i slot="prefix">
+          <img src="../../assets/Images/email.png" alt="">
+        </i>
+      </el-input>
     </el-form-item>
     <el-form-item prop="pass">
-      <el-input type="password" v-model="verification.pass" autocomplete="off" placeholder="密码" class="exchange-register-input"></el-input>
+      <el-input type="password" v-model="verification.pass" autocomplete="off" class="exchange-register-input">
+        <i slot="prefix">
+          <img src="../../assets/Images/pass.png" alt="">
+        </i>
+      </el-input>
     </el-form-item>
     <el-form-item prop="checkPass">
-      <el-input type="password" v-model="verification.checkPass" autocomplete="off" placeholder="确认密码" class="exchange-register-input"></el-input>
+      <el-input type="password" v-model="verification.checkPass" autocomplete="off" class="exchange-register-input">
+        <i slot="prefix">
+          <img src="../../assets/Images/pass.png" alt="">
+        </i>
+      </el-input>
     </el-form-item>
     <el-form-item prop="">
-      <el-input placeholder="图片验证码" class="exchange-register-input-pic" v-model="VerificationCode"></el-input>
+      <el-input class="exchange-register-input-input" v-model="VerificationCode">
+        <i slot="prefix">
+          <img src="../../assets/Images/yzm.png" alt="">
+        </i>
+      </el-input>
       <el-input type="" readonly="readonly" @click="createCode"  class="exchange-register-input-pic" v-model="checkCode"></el-input>
     </el-form-item>
     <div class="exchange-input-checkbox">
@@ -137,8 +153,11 @@ export default {
 .exchange-register-button button{
   width: 300px;
 }
+.exchange-register-input-input{
+  width: 210px;
+}
 .exchange-register-input-pic.el-input {
-    width: 150px;
+    width: 90px;
 }
 .exchange-register-footer-button{
   float: right;
