@@ -531,7 +531,7 @@ export default {
   color:#fff;
   /* border-bottom:0; */
 }
-.el-table tr:hover>td{
+.coin-footer-black .el-table tr:hover>td{
   background-color:#000;
 }
 </style>

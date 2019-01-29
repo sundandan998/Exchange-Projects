@@ -94,6 +94,10 @@ export default {
     float: left;
     display: inline-block;
 }
+.exchange-logo img {
+    width: 110px;
+    margin-top: 10px;
+}
   .exchange-header{
     float: right;
     display: -webkit-inline-box;

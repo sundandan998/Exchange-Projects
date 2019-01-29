@@ -1,93 +1,43 @@
 <template>
-  <el-container>
+  <el-container class="currency-trading-page">
     <el-container>
-      <el-aside width="310px">
+      <el-aside width="305px" class="coin-aside">
         <div class="coin-aside-top">
-            <div class="coin-aside-top-title">
-              <h3>市场</h3>
-              <img src="../../assets/Images/start.png" alt="">
-              <el-button size="mini" type="primary">自选</el-button>
-              <el-button size="mini" type="primary">USDT</el-button>
-              <el-button size="mini" type="primary">XRP</el-button>
-              <el-button size="mini" type="primary">EOS</el-button>
-              <div class="coin-aside-line"></div>
-            </div>
-            <div class="coin-aside-top-search">
-              <input type="text" placeholder="请输入币种简称">
-              <img src="../../assets/Images/Search.png" alt="">
-            </div>
-            <div class="coin-aside-top-data">
-                <span>市场</span>
-                <span>最新价</span>
-                <span>24H涨跌</span>
+          <div class="coin-aside-top-title">
+            <h3>市场</h3>
+            <img src="../../assets/Images/start.png" alt="">
+            <el-button size="mini" type="primary">自选</el-button>
+            <el-button size="mini" type="primary">USDT</el-button>
+            <el-button size="mini" type="primary">XRP</el-button>
+            <el-button size="mini" type="primary">EOS</el-button>
             <div class="coin-aside-line"></div>
-            <div class="coin-aside-slider fr">
-              <el-slider v-model="value10" vertical height="100px"></el-slider>
-            </div>
-              <p>
-                <img src="../../assets/Images/start1.png" alt="">
-                <ul>
-                  <li>BTC/USDT</li>
-                  <li>3939.55 </li>
-                  <li>+0.94%</li>
-                </ul>
-              </p>
-              <p>
-                <img src="../../assets/Images/start1.png" alt="">
-                <ul>
-                  <li>EOS/USDT</li>
-                  <li>2.69612</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-              <p>
-                <img src="../../assets/Images/start1.png" alt="">
-                <ul>
-                  <li>ETH/USDT</li>
-                  <li>128.475</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-            </div>
           </div>
-          <div class="coin-aside-bottom">
-            <div class="coin-aside-bottom-title">
-              <h3>最新成交</h3>
-            </div>
-            <div class="coin-aside-bottom-data">
-                <span>价格(USDT)</span>
-                <span>数量(BTC)</span>
-                <span>时间</span>
-            <div class="coin-aside-line"></div>
-            <div class="coin-aside-slider fr">
-              <el-slider v-model="value10" vertical height="100px"></el-slider>
-            </div>
-              <p>
-                <img src="../../assets/Images/start1.png" alt="">
-                <ul>
-                  <li>BTC/USDT</li>
-                  <li>3939.55 </li>
-                  <li>+0.94%</li>
-                </ul>
-              </p>
-              <p>
-                <img src="../../assets/Images/start1.png" alt="">
-                <ul>
-                  <li>EOS/USDT</li>
-                  <li>2.69612</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-              <p>
-                <img src="../../assets/Images/start1.png" alt="">
-                <ul>
-                  <li>ETH/USDT</li>
-                  <li>128.475</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-            </div>
+          <div class="coin-aside-top-search">
+            <input type="text" placeholder="请输入币种简称">
+            <img src="../../assets/Images/Search.png" alt="">
           </div>
+            <el-table :data="tableData1" height="150" class="coin-aside-back">
+              <el-table-column prop="market" sortable label="市场" width="100">
+              </el-table-column>
+              <el-table-column prop="price" label="最新价" width="105">
+              </el-table-column>
+              <el-table-column prop="ups" label="24H涨跌" width="100">
+              </el-table-column>
+            </el-table>
+        </div>
+        <div class="coin-aside-bottom">
+          <div class="coin-aside-bottom-title">
+            <h3>最新成交</h3>
+          </div>
+          <el-table :data="tableData1" height="150">
+            <el-table-column prop="market" label="价格(USDT)" width="100">
+            </el-table-column>
+            <el-table-column prop="price" label="数量(BTC)" width="105">
+            </el-table-column>
+            <el-table-column prop="ups" label="时间" width="100">
+            </el-table-column>
+          </el-table>
+        </div>
       </el-aside>
       <el-main>
         <div class="coin-main-top">
@@ -95,7 +45,9 @@
             <img src="../../assets/Images/moon-b.png" alt="" @click="jumpPage">
             <img src="../../assets/Images/sun.png" alt="">
           </div>
-          <img src="../../assets/Images/k.png" alt="">
+          <div class="tradingview-widget-container coin-main-top-k ">
+            <div id="tradingview_50579"></div>
+          </div>
         </div>
         <div class="coin-main-bottom">
           <el-tabs type="border-card">
@@ -168,62 +120,29 @@
           </el-tabs>
         </div>
       </el-main>
-      <el-aside width="310px">
-        <div class="coin-aside-right">
-          <div class="coin-aside-right-title">
-            <h3>买卖盘</h3>
+      <el-aside width="310px" class="coin-aside">
+        <div class="coin-aside-right-top">
+          <div class="coin-aside-top-title">
+            <h3>最新成交</h3>
           </div>
-          <div class="coin-aside-right-data">
-              <span>价格</span>
-              <span>数量</span>
-              <span>累计</span>
-            <div class="coin-aside-line"></div>
-              <p>
-                <ul>
-                  <li>BTC/USDT</li>
-                  <li>3939.55 </li>
-                  <li>+0.94%</li>
-                </ul>
-              </p>
-              <p>
-                <ul>
-                  <li>EOS/USDT</li>
-                  <li>2.69612</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-              <p>
-                <ul>
-                  <li>ETH/USDT</li>
-                  <li>128.475</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-              <div class="coin-aside-line"></div>
-              <h3>3942.92</h3>
-              <div class="coin-aside-line"></div>
-              <p>
-                <ul>
-                  <li>BTC/USDT</li>
-                  <li>3939.55 </li>
-                  <li>+0.94%</li>
-                </ul>
-              </p>
-              <p>
-                <ul>
-                  <li>EOS/USDT</li>
-                  <li>2.69612</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-              <p>
-                <ul>
-                  <li>ETH/USDT</li>
-                  <li>128.475</li>
-                  <li>+0.87%</li>
-                </ul>
-              </p>
-          </div>
+          <el-table :data="tableData1" height="150">
+            <el-table-column prop="market" label="价格(USDT)" width="100">
+            </el-table-column>
+            <el-table-column prop="price" label="数量(BTC)" width="105">
+            </el-table-column>
+            <el-table-column prop="ups" label="累计" width="100">
+            </el-table-column>
+          </el-table>
+        </div>
+        <div class="coin-aside-right-bottom">
+          <el-table :data="tableData1" height="150">
+            <el-table-column prop="market" label="价格(USDT)" width="100">
+            </el-table-column>
+            <el-table-column prop="price" label="数量(BTC)" width="105">
+            </el-table-column>
+            <el-table-column prop="ups" label="累计" width="100">
+            </el-table-column>
+          </el-table>
         </div>
       </el-aside>
     </el-container>
@@ -281,6 +200,22 @@ export default {
   data () {
     return {
       value10: 0,
+      tableData1: [{
+        market: 'BTC/USDT',
+        price: '3,977.96',
+        ups: '+0.94%'
+      },
+      {
+        market: 'BTC/USDT',
+        price: '3,977.96',
+        ups: '+0.94%'
+      },
+      {
+        market: 'BTC/USDT',
+        price: '3,977.96',
+        ups: '+0.94%'
+      }
+      ],
       tableData: [{
         date: '2016-05-02',
         pairs: 'BTC/USDT',
@@ -317,4 +252,17 @@ export default {
 </script>
 <style lang="scss">
   @import '../../assets/scss/global';
+</style>
+<style scoped>
+/* .currency-trading-page {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background-color: #000;
+}
+.el-aside {
+  background-color: #000;
+  padding-left: 5px;
+  color:#fff;
+} */
 </style>
