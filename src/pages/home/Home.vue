@@ -231,6 +231,9 @@
     </el-container>
     <el-footer>
       <div class="coin-footer-black">
+        <div class="teslist">
+          <button @click="methods1">显示console</button>
+        </div>
         <h3>当前委托</h3>
           <el-table :data="tableData" :row-style="tableRowStyle" :header-cell-style="tableHeaderColor">
             <el-table-column prop="date" label="委托时间" width="180"></el-table-column>
@@ -274,8 +277,10 @@
         </div>
     </el-footer>
   </el-container>
+
 </template>
 <script>
+import {realconsole} from '../currency-trading/js/1'
 export default {
   data () {
     return {
@@ -307,6 +312,9 @@ export default {
     }
   },
   methods: {
+    methods1: function () {
+      realconsole()
+    },
     // 修改table tr行的背景色
     tableRowStyle ({ row, rowIndex }) {
       return 'background-color: #000; color:#fff;'
