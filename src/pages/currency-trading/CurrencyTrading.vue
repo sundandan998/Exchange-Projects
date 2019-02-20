@@ -45,7 +45,10 @@
             <img src='../../assets/Images/moon-b.png' alt='' @click='jumpPage'>
             <img src='../../assets/Images/sun.png' alt=''>
           </div>
-          <div id='tv_chart_container' style='height: 530px'>
+          <div>
+            <iframe id="outdoor" frameborder="0" name="showHere" scrolling="no"
+            src="../../../static/index.html">
+          </iframe>
           </div>
         </div>
         <div class='coin-main-bottom'>
@@ -121,11 +124,7 @@
       </el-main>
       <el-aside width='310px' class='coin-aside'>
         <div class='coin-aside-right-top'>
-          <div class='teslist'>
-              <button @click='dataUpdater'>显示console</button>
-            </div>
-            <div>
-            </div>
+        <div id= "trade-view"></div>
           <div class='coin-aside-top-title'>
             <h3>最新成交</h3>
           </div>
@@ -200,16 +199,7 @@
   </el-container>
 </template>
 <script>
-// import '../currency-trading/charting_library/charting_library.min'
-// import '../currency-trading/jquery-2.1.1/jquery.min'
-import {dataUpdater} from './js/data-updater'
-import {datafees} from './js/datafees'
-import {socket} from './js/socket'
-import {TVjsApi} from './js/tvjs-api'
 export default {
-  // created: function () {
-  //   console.log(MD5('66666'))
-  // },
   data () {
     return {
       value10: 0,
@@ -259,38 +249,14 @@ export default {
     jumpPage () {
       this.$router.push('/home')
       this.$router.go(0)
-    },
-    // methods1: function () {
-    //   realconsole()
-    // },
-    socket: function () {
-      socket()
-    },
-    datafees: function () {
-      datafees()
-    },
-    dataUpdater: function () {
-      dataUpdater()
-    },
-    TVjsApi: function () {
-      TVjsApi()
     }
   }
 }
 </script>
 <style lang='scss'>
+    /* #outdoor {
+    width: 100%;
+    height: 600px !important;
+  } */
   @import '../../assets/scss/global'
 </style>
-<!-- <style scoped>
-.currency-trading-page {
-  width: 100%
-  height: 100%
-  top: 0px
-  background-color: #000
-}
-.el-aside {
-  background-color: #000
-  padding-left: 5px
-  color:#fff
-}
-</style> -->

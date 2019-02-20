@@ -280,7 +280,6 @@
 
 </template>
 <script>
-import {realconsole} from '../currency-trading/js/1'
 export default {
   data () {
     return {
@@ -312,9 +311,6 @@ export default {
     }
   },
   methods: {
-    methods1: function () {
-      realconsole()
-    },
     // 修改table tr行的背景色
     tableRowStyle ({ row, rowIndex }) {
       return 'background-color: #000; color:#fff;'
