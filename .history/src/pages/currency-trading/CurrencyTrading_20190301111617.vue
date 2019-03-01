@@ -1,7 +1,7 @@
 <template>
   <el-container class='currency-trading-page'>
     <el-container>
-      <el-aside width='320px' class='coin-aside'>
+      <el-aside width='305px' class='coin-aside'>
         <div class='coin-aside-top'>
           <div class='coin-aside-top-title'>
             <h3>市场</h3>
@@ -45,8 +45,8 @@
             <img src='../../assets/Images/moon-b.png' alt='' @click='jumpPage'>
             <img src='../../assets/Images/sun.png' alt=''>
           </div>
-          <div class='coin-main-tradingview'>
-            <div id="trade-view"></div>
+          <div class='coin-main-bot'>
+            <div id="trade-view" class="" style="height:400px;"></div>
           </div>
         </div>
         <div class='coin-main-bottom'>
@@ -197,7 +197,7 @@
   </el-container>
 </template>
 <script>
-  import { widget as TvWidget } from '../../../static/charting_library/charting_library.min'
+  // import { widget as TvWidget } from '../../../static/charting_library/charting_library.min'
   import FeedBase from '../../datafeed'
 export default {
   name: 'HelloWorld',
@@ -264,7 +264,7 @@ export default {
       // fullscreen: true,
       container_id: 'trade-view',
       datafeed: new FeedBase(),
-      library_path: '../static/charting_library/',
+      library_path: '/static/tradeview/charting_library/',
       disabled_features: ['header_symbol_search'],
       enabled_features: [],
       timezone: 'Asia/Shanghai',

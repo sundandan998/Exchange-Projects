@@ -89,15 +89,15 @@ export default {
 <style>
   :focus {
     outline: 0;
-  }
-  .exchange-logo {
-      float: left;
-      display: inline-block;
-  }
-  .exchange-logo img {
-      width: 110px;
-      margin-top: 10px;
-  }
+}
+.exchange-logo {
+    float: left;
+    display: inline-block;
+}
+.exchange-logo img {
+    width: 110px;
+    margin-top: 10px;
+}
   .exchange-header{
     float: right;
     display: -webkit-inline-box;

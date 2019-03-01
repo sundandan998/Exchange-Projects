@@ -1,5 +1,6 @@
-// import socket from './socket.js';
-// import Event from './event.js'
+import socket from './websocket';
+import Event from './event.js';
+//import Datafeeds from "./datafeed/datafeed";
 
 /*********************************************/
 
@@ -27,6 +28,7 @@ FeedBase.prototype.getSendSymbolName = function (symbolName) {
 }
 
 FeedBase.prototype.resolveSymbol = function (symbolName, onResolve, onError) {
+  console.log('fgg')
   onResolve({
     "name": symbolName,
     "timezone": "Asia/Shanghai",
@@ -74,7 +76,7 @@ FeedBase.prototype.getApiTime = function (resolution) {
 FeedBase.prototype.getBars = function (symbolInfo, resolution, rangeStartDate, rangeEndDate, onResult, onError) {
   // 切换产品周期 或者 切换产品 会执行这个函数
 
-  // 是历史数据 
+  // 是历史数据
   var history = true
 
   /*
@@ -102,11 +104,12 @@ FeedBase.prototype.getBars = function (symbolInfo, resolution, rangeStartDate, r
   socket.sendData({
     args: [`candle.${this.getApiTime(resolution)}.${this.getSendSymbolName(symbolInfo.name)}`, 1441, detafeed_historyTime],
     cmd: 'req',
-    id: '0a0493f7-80d4-4d1a-9d98-6da9ae9d399e'
+    id: '0a0493f7-80d4-4d1a-9d98-5925692922'
   }, `candle.${this.getApiTime(resolution)}.${this.getSendSymbolName(symbolInfo.name)}`, history)
   Event.off('data')
 
   Event.on('data', data => {
+     // console.log(data)
     if (data.data && Array.isArray(data.data)) {
       // 记录这次请求的时间周期
       detafeed_lastResolution = resolution
@@ -132,7 +135,6 @@ FeedBase.prototype.getBars = function (symbolInfo, resolution, rangeStartDate, r
   })
 }
 
-
 FeedBase.prototype.subscribeBars = function (symbolInfo, resolution, onTick, listenerGuid, onResetCacheNeededCallback) {
   Event.off('realTime')
 
@@ -154,3 +156,4 @@ FeedBase.prototype.subscribeBars = function (symbolInfo, resolution, onTick, lis
 FeedBase.prototype.unsubscribeBars = function (listenerGuid) {
   // 取消订阅产品的callback
 }
+export default FeedBase;

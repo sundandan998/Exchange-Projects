@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <el-row>
       <el-col :span="24">
@@ -114,4 +114,4 @@ export default {
   .exchange-language{
     width: 120px;
   }
-</style>
+</style> -->

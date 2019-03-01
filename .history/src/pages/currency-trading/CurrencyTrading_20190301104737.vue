@@ -1,20 +1,51 @@
 <template>
   <el-container class='currency-trading-page'>
     <el-container>
+      <el-aside width='305px' class='coin-aside'>
+        <div class='coin-aside-top'>
+          <div class='coin-aside-top-title'>
+            <h3>市场</h3>
+            <img src='../../assets/Images/start.png' alt=''>
+            <el-button size='mini' type='primary'>自选</el-button>
+            <el-button size='mini' type='primary'>USDT</el-button>
+            <el-button size='mini' type='primary'>XRP</el-button>
+            <el-button size='mini' type='primary'>EOS</el-button>
+            <div class='coin-aside-line'></div>
+          </div>
+          <div class='coin-aside-top-search'>
+            <input type='text' placeholder='请输入币种简称'>
+            <img src='../../assets/Images/Search.png' alt=''>
+          </div>
+            <el-table :data='tableData1' height='150' class='coin-aside-back'>
+              <el-table-column prop='market' sortable label='市场' width='100'>
+              </el-table-column>
+              <el-table-column prop='price' label='最新价' width='105'>
+              </el-table-column>
+              <el-table-column prop='ups' label='24H涨跌' width='100'>
+              </el-table-column>
+            </el-table>
+        </div>
+        <div class='coin-aside-bottom'>
+          <div class='coin-aside-bottom-title'>
+            <h3>最新成交</h3>
+          </div>
+          <el-table :data='tableData1' height='150'>
+            <el-table-column prop='market' label='价格(USDT)' width='100'>
+            </el-table-column>
+            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            </el-table-column>
+            <el-table-column prop='ups' label='时间' width='100'>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-aside>
       <el-main>
         <div class='coin-main-top'>
           <div class='coin-main-top-img'>
             <img src='../../assets/Images/moon-b.png' alt='' @click='jumpPage'>
             <img src='../../assets/Images/sun.png' alt=''>
           </div>
-          <!-- <div> -->
-            <!-- <iframe id="outdoor" frameborder="0" name="showHere" scrolling="no"
-            src="../../../static/index.html">
-          </iframe> -->
-          <div class='hello'>
-            <div class='f-fill' style='height:500px;'></div>
-          </div>
-          <!-- </div> -->
+   
         </div>
         <div class='coin-main-bottom'>
           <el-tabs type='border-card'>
@@ -87,6 +118,32 @@
           </el-tabs>
         </div>
       </el-main>
+      <el-aside width='310px' class='coin-aside'>
+        <div class='coin-aside-right-top'>
+        <div id= "trade-view"></div>
+          <div class='coin-aside-top-title'>
+            <h3>最新成交</h3>
+          </div>
+          <el-table :data='tableData1' height='150'>
+            <el-table-column prop='market' label='价格(USDT)' width='100'>
+            </el-table-column>
+            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            </el-table-column>
+            <el-table-column prop='ups' label='累计' width='100'>
+            </el-table-column>
+          </el-table>
+        </div>
+        <div class='coin-aside-right-bottom'>
+          <el-table :data='tableData1' height='150'>
+            <el-table-column prop='market' label='价格(USDT)' width='100'>
+            </el-table-column>
+            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            </el-table-column>
+            <el-table-column prop='ups' label='累计' width='100'>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-aside>
     </el-container>
     <el-footer>
       <div class='coin-footer'>
@@ -138,6 +195,8 @@
   </el-container>
 </template>
 <script>
+  import { widget as TvWidget } from '../../static/tradeview/charting_library/charting_library.min.js'
+  import FeedBase from "../datafeed"
 export default {
   // name: 'HelloWorld',
   data () {
@@ -149,37 +208,15 @@ export default {
       chart: null,
       feed: null,
       last_price: 1234.2365,
-      bars: [
-        {
-          time: 1508313600000,
-          close: 42.1,
-          open: 41.0,
-          high: 43.0,
-          low: 40.4,
-          volume: 12000
-        }, {
-          time: 1508317200000,
-          close: 43.4,
-          open: 42.9,
-          high: 44.1,
-          low: 42.1,
-          volume: 18500
-        }, {
-          time: 1508320800000,
-          close: 44.3,
-          open: 43.7,
-          high: 44.8,
-          low: 42.8,
-          volume: 24000
-        }, {
-          time: 1508324400000,
-          close: 42.8,
-          open: 44.5,
-          high: 44.5,
-          low: 42.3,
-          volume: 45000
-        }
-      ],
+      widget: null,
+        //socket: new socket(),
+        //datafeeds: new datafeeds(this),
+        symbol: null,
+        interval: null,
+        cacheData: {},
+        lastTime: null,
+        getBarTimer: null,
+        isLoading: true,
       tableData1: [{
         market: 'BTC/USDT',
         price: '3,977.96',
@@ -222,182 +259,33 @@ export default {
       }]
     }
   },
-  mounted () {
-    const thisVue = this
-    // thisVue.getChartData();//todo: do odkomentowania na feedzie
-    // if(window.localStorage.getItem('chart_settings')) //todo: do sprawdzenia w bardziej zaawansowanym stanie
-    // thisVue.saved_chart = JSON.parse(window.localStorage.getItem('chart_settings'));
-    thisVue.feed = thisVue.createFeed()
-    TradingView.onready(function (configurationData) {
-      thisVue.chart = window.tvWidget = new TradingView.widget({
-        fullscreen: true,
-        autosize: true,
-        symbol: thisVue.currency1 + ':' + thisVue.currency2,
-        // container_id: 'chart_container',
-        datafeed: thisVue.feed,
-        library_path: 'static/custom_scripts/chart_main/',
-        locale: 'en',
-        timezone: 'Etc/UTC', // todo: ustawianie timezone'a po strefie usera
-        charts_storage_api_version: '1.1',
-        client_id: 'tradingview.com',
-        user_id: 'public_user_id',
-        debug: true,
-        // loading_screen:{ backgroundColor: '#000000',foregroundColor: '#000000', }//todo:do it
-        interval: '60',
-        // timeframe:'',//todo: na koncu
-        toolbar_bg: '#20334d',
-        // saved_data: thisVue.savedData,
-        allow_symbol_change: true,
-        time_frames: [
-          {text: '1y', resolution: '1W'},
-          {text: '6m', resolution: '3D'},
-          {text: '3m', resolution: '1D'},
-          {text: '1m', resolution: '1D'},
-          {text: '1w', resolution: '30'},
-          {text: '3d', resolution: '30'},
-          {text: '1d', resolution: '30'},
-          {text: '6h', resolution: '15'},
-          {text: '1h', resolution: '1'}],
-        drawings_access: {
-          type: 'black',
-          // tools: [{name: 'Regression Trend'}]//todo: moje
-          tools: [{name: 'Trend Line', grayed: true}, {name: 'Trend Angle', grayed: true}] // todo: bb
-        },
-        disabled_features: [
-          'header_symbol_search',
-          'header_interval_dialog_button',
-          'show_interval_dialog_on_key_press',
-          'symbol_search_hot_key',
-          'study_dialog_search_control',
-          'display_market_status',
-          'header_compare',
-          'edit_buttons_in_legend',
-          'symbol_info',
-          'border_around_the_chart',
-          'main_series_scale_menu',
-          'star_some_intervals_by_default',
-          'datasource_copypaste',
-          'right_bar_stays_on_scroll',
-          'context_menus',
-          'go_to_date',
-          'compare_symbol',
-          'border_around_the_chart',
-          'timezone_menu',
-          // 'header_resolutions',//todo: przetestowac
-          // 'control_bar',//todo: przetestowac
-          // 'edit_buttons_in_legend',//todo: przetestowac
-          'remove_library_container_border'
-        ],
-        enabled_features: [
-          'dont_show_boolean_study_arguments',
-          'use_localstorage_for_settings',
-          'remove_library_container_border',
-          'save_chart_properties_to_local_storage',
-          'side_toolbar_in_fullscreen_mode',
-          'hide_last_na_study_output',
-          'constraint_dialogs_movement'// todo: nie do końca jestem pewien
-        ],
-        studies_overrides: {
-          'volume.volume.color.0': '#fe4761',
-          'volume.volume.color.1': '#3fcfb4',
-          'volume.volume.transparency': 75
-        },
-        overrides: {
-          'symbolWatermarkProperties.color': 'rgba(0,0,0, 0)',
-          'paneProperties.background': '#20334d',
-          'paneProperties.vertGridProperties.color': '#344568',
-          'paneProperties.horzGridProperties.color': '#344568',
-          'paneProperties.crossHairProperties.color': '#58637a',
-          'paneProperties.crossHairProperties.style': 2,
-          'mainSeriesProperties.style': 9,
-          'mainSeriesProperties.showCountdown': false,
-          'scalesProperties.showSeriesLastValue': true,
-          'mainSeriesProperties.visible': false,
-          'mainSeriesProperties.showPriceLine': false,
-          'mainSeriesProperties.priceLineWidth': 1,
-          'mainSeriesProperties.lockScale': false,
-          'mainSeriesProperties.minTick': 'default',
-          'mainSeriesProperties.extendedHours': false,
-          'volumePaneSize': 'tiny',
-          editorFontsList: ['Lato', 'Arial', 'Verdana', 'Courier New', 'Times New Roman'],
-          'paneProperties.topMargin': 5,
-          'paneProperties.bottomMargin': 5,
-          'paneProperties.leftAxisProperties.autoScale': true,
-          'paneProperties.leftAxisProperties.autoScaleDisabled': false,
-          'paneProperties.leftAxisProperties.percentage': false,
-          'paneProperties.leftAxisProperties.percentageDisabled': false,
-          'paneProperties.leftAxisProperties.log': false,
-          'paneProperties.leftAxisProperties.logDisabled': false,
-          'paneProperties.leftAxisProperties.alignLabels': true,
-          // 'paneProperties.legendProperties.showStudyArguments': true,
-          'paneProperties.legendProperties.showStudyTitles': true,
-          'paneProperties.legendProperties.showStudyValues': true,
-          'paneProperties.legendProperties.showSeriesTitle': true,
-          'paneProperties.legendProperties.showSeriesOHLC': true,
-          'scalesProperties.showLeftScale': false,
-          'scalesProperties.showRightScale': true,
-          'scalesProperties.backgroundColor': '#20334d',
-          'scalesProperties.lineColor': '#46587b',
-          'scalesProperties.textColor': '#8f98ad',
-          'scalesProperties.scaleSeriesOnly': false,
-          'mainSeriesProperties.priceAxisProperties.autoScale': true,
-          'mainSeriesProperties.priceAxisProperties.autoScaleDisabled': false,
-          'mainSeriesProperties.priceAxisProperties.percentage': false,
-          'mainSeriesProperties.priceAxisProperties.percentageDisabled': false,
-          'mainSeriesProperties.priceAxisProperties.log': false,
-          'mainSeriesProperties.priceAxisProperties.logDisabled': false,
-          'mainSeriesProperties.candleStyle.upColor': '#3fcfb4',
-          'mainSeriesProperties.candleStyle.downColor': '#fe4761',
-          'mainSeriesProperties.candleStyle.drawWick': true,
-          'mainSeriesProperties.candleStyle.drawBorder': true,
-          'mainSeriesProperties.candleStyle.borderColor': '#3fcfb4',
-          'mainSeriesProperties.candleStyle.borderUpColor': '#3fcfb4',
-          'mainSeriesProperties.candleStyle.borderDownColor': '#fe4761',
-          'mainSeriesProperties.candleStyle.wickColor': '#737375',
-          'mainSeriesProperties.candleStyle.wickUpColor': '#3fcfb4',
-          'mainSeriesProperties.candleStyle.wickDownColor': '#fe4761',
-          'mainSeriesProperties.candleStyle.barColorsOnPrevClose': false,
-          'mainSeriesProperties.hollowCandleStyle.upColor': '#3fcfb4',
-          'mainSeriesProperties.hollowCandleStyle.downColor': '#fe4761',
-          'mainSeriesProperties.hollowCandleStyle.drawWick': true,
-          'mainSeriesProperties.hollowCandleStyle.drawBorder': true,
-          'mainSeriesProperties.hollowCandleStyle.borderColor': '#3fcfb4',
-          'mainSeriesProperties.hollowCandleStyle.borderUpColor': '#3fcfb4',
-          'mainSeriesProperties.hollowCandleStyle.borderDownColor': '#fe4761',
-          'mainSeriesProperties.hollowCandleStyle.wickColor': '#737375',
-          'mainSeriesProperties.hollowCandleStyle.wickUpColor': '#3fcfb4',
-          'mainSeriesProperties.hollowCandleStyle.wickDownColor': '#fe4761',
-          'mainSeriesProperties.haStyle.upColor': '#3fcfb4',
-          'mainSeriesProperties.haStyle.downColor': '#fe4761',
-          'mainSeriesProperties.haStyle.drawWick': true,
-          'mainSeriesProperties.haStyle.drawBorder': true,
-          'mainSeriesProperties.haStyle.borderColor': '#3fcfb4',
-          'mainSeriesProperties.haStyle.borderUpColor': '#3fcfb4',
-          'mainSeriesProperties.haStyle.borderDownColor': '#fe4761',
-          'mainSeriesProperties.haStyle.wickColor': '#737375',
-          'mainSeriesProperties.haStyle.wickUpColor': '#3fcfb4',
-          'mainSeriesProperties.haStyle.wickDownColor': '#fe4761',
-          'mainSeriesProperties.haStyle.barColorsOnPrevClose': false,
-          'mainSeriesProperties.barStyle.upColor': '#3fcfb4',
-          'mainSeriesProperties.barStyle.downColor': '#fe4761',
-          'mainSeriesProperties.barStyle.barColorsOnPrevClose': false,
-          'mainSeriesProperties.barStyle.dontDrawOpen': false,
-          'mainSeriesProperties.lineStyle.color': '#0cbef3',
-          'mainSeriesProperties.lineStyle.linestyle': 0,
-          'mainSeriesProperties.lineStyle.linewidth': 1,
-          'mainSeriesProperties.lineStyle.priceSource': 'close',
-          'mainSeriesProperties.areaStyle.color1': '#0cbef3',
-          'mainSeriesProperties.areaStyle.color2': '#0098c4',
-          'mainSeriesProperties.areaStyle.linecolor': '#0cbef3',
-          'mainSeriesProperties.areaStyle.linestyle': 0,
-          'mainSeriesProperties.areaStyle.linewidth': 1,
-          'mainSeriesProperties.areaStyle.priceSource': 'close',
-          'mainSeriesProperties.areaStyle.transparency': 80
-        },
-        custom_css_url: 'chart.css'
-      })
-    })
-  },
+  mounted() {
+      let index_market = 'BTC/USDT'
+      // 进入页面 默认展示的产品周期
+      let index_activeCycle = '1'
+
+
+        // chartConfig 在chartConfig.js里面
+        // 给chartConfig添加展示周期
+
+
+        this.widget = new TvWidget({
+          symbol: index_market,
+          interval: index_activeCycle,
+          // fullscreen: true,
+          container_id: 'trade-view',
+          datafeed: new FeedBase(),
+          library_path: '/static/tradeview/charting_library/',
+          disabled_features: ['header_symbol_search'],
+          enabled_features: [],
+          timezone: 'Asia/Shanghai',
+          locale: 'zh',
+          debug: false
+        })
+
+
+
+    },
   methods: {
     jumpPage () {
       this.$router.push('/home')

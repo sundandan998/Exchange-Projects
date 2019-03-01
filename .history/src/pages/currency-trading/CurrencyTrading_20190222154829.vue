@@ -1,6 +1,44 @@
 <template>
   <el-container class='currency-trading-page'>
     <el-container>
+      <el-aside width='305px' class='coin-aside'>
+        <div class='coin-aside-top'>
+          <div class='coin-aside-top-title'>
+            <h3>市场</h3>
+            <img src='../../assets/Images/start.png' alt=''>
+            <el-button size='mini' type='primary'>自选</el-button>
+            <el-button size='mini' type='primary'>USDT</el-button>
+            <el-button size='mini' type='primary'>XRP</el-button>
+            <el-button size='mini' type='primary'>EOS</el-button>
+            <div class='coin-aside-line'></div>
+          </div>
+          <div class='coin-aside-top-search'>
+            <input type='text' placeholder='请输入币种简称'>
+            <img src='../../assets/Images/Search.png' alt=''>
+          </div>
+            <el-table :data='tableData1' height='150' class='coin-aside-back'>
+              <el-table-column prop='market' sortable label='市场' width='100'>
+              </el-table-column>
+              <el-table-column prop='price' label='最新价' width='105'>
+              </el-table-column>
+              <el-table-column prop='ups' label='24H涨跌' width='100'>
+              </el-table-column>
+            </el-table>
+        </div>
+        <div class='coin-aside-bottom'>
+          <div class='coin-aside-bottom-title'>
+            <h3>最新成交</h3>
+          </div>
+          <el-table :data='tableData1' height='150'>
+            <el-table-column prop='market' label='价格(USDT)' width='100'>
+            </el-table-column>
+            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            </el-table-column>
+            <el-table-column prop='ups' label='时间' width='100'>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-aside>
       <el-main>
         <div class='coin-main-top'>
           <div class='coin-main-top-img'>
@@ -87,6 +125,32 @@
           </el-tabs>
         </div>
       </el-main>
+      <el-aside width='310px' class='coin-aside'>
+        <div class='coin-aside-right-top'>
+        <div id= "trade-view"></div>
+          <div class='coin-aside-top-title'>
+            <h3>最新成交</h3>
+          </div>
+          <el-table :data='tableData1' height='150'>
+            <el-table-column prop='market' label='价格(USDT)' width='100'>
+            </el-table-column>
+            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            </el-table-column>
+            <el-table-column prop='ups' label='累计' width='100'>
+            </el-table-column>
+          </el-table>
+        </div>
+        <div class='coin-aside-right-bottom'>
+          <el-table :data='tableData1' height='150'>
+            <el-table-column prop='market' label='价格(USDT)' width='100'>
+            </el-table-column>
+            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            </el-table-column>
+            <el-table-column prop='ups' label='累计' width='100'>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-aside>
     </el-container>
     <el-footer>
       <div class='coin-footer'>
@@ -235,7 +299,7 @@ export default {
         symbol: thisVue.currency1 + ':' + thisVue.currency2,
         // container_id: 'chart_container',
         datafeed: thisVue.feed,
-        library_path: 'static/custom_scripts/chart_main/',
+        library_path: '../../../static1/custom_scripts/chart_main',
         locale: 'en',
         timezone: 'Etc/UTC', // todo: ustawianie timezone'a po strefie usera
         charts_storage_api_version: '1.1',

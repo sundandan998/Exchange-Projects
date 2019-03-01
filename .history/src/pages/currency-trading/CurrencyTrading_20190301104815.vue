@@ -1,7 +1,7 @@
 <template>
   <el-container class='currency-trading-page'>
     <el-container>
-      <el-aside width='320px' class='coin-aside'>
+      <el-aside width='305px' class='coin-aside'>
         <div class='coin-aside-top'>
           <div class='coin-aside-top-title'>
             <h3>市场</h3>
@@ -45,9 +45,7 @@
             <img src='../../assets/Images/moon-b.png' alt='' @click='jumpPage'>
             <img src='../../assets/Images/sun.png' alt=''>
           </div>
-          <div class='coin-main-tradingview'>
-            <div id="trade-view"></div>
-          </div>
+   
         </div>
         <div class='coin-main-bottom'>
           <el-tabs type='border-card'>
@@ -197,13 +195,20 @@
   </el-container>
 </template>
 <script>
-  import { widget as TvWidget } from '../../../static/charting_library/charting_library.min'
-  import FeedBase from '../../datafeed'
+  import { widget as TvWidget } from '../../static/tradeview/charting_library/charting_library.min.js'
+  import FeedBase from "../datafeed"
 export default {
-  name: 'HelloWorld',
+  // name: 'HelloWorld',
   data () {
     return {
       value10: 0,
+      currency1: 'USD',
+      currency2: 'BTC',
+      saved_chart: null,
+      chart: null,
+      feed: null,
+      last_price: 1234.2365,
+      widget: null,
         //socket: new socket(),
         //datafeeds: new datafeeds(this),
         symbol: null,
@@ -258,20 +263,28 @@ export default {
     let index_market = 'BTC/USDT'
     // 进入页面 默认展示的产品周期
     let index_activeCycle = '1'
-    this.widget = new TvWidget({
-      symbol: index_market,
-      interval: index_activeCycle,
-      // fullscreen: true,
-      container_id: 'trade-view',
-      datafeed: new FeedBase(),
-      library_path: '../static/charting_library/',
-      disabled_features: ['header_symbol_search'],
-      enabled_features: [],
-      timezone: 'Asia/Shanghai',
-      locale: 'zh',
-      debug: false
-    })
-  },
+
+
+      // chartConfig 在chartConfig.js里面
+      // 给chartConfig添加展示周期
+
+
+      this.widget = new TvWidget({
+        symbol: index_market,
+        interval: index_activeCycle,
+        // fullscreen: true,
+        container_id: 'trade-view',
+        datafeed: new FeedBase(),
+        library_path: '/static/tradeview/charting_library/',
+        disabled_features: ['header_symbol_search'],
+        enabled_features: [],
+        timezone: 'Asia/Shanghai',
+        locale: 'zh',
+        debug: false
+      })
+    },
+ 
+ 
   methods: {
     jumpPage () {
       this.$router.push('/home')

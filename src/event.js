@@ -1,3 +1,4 @@
+
 var Event = {
   EVENT: {},
   emit (eventName, resp) {
@@ -18,3 +19,5 @@ var Event = {
     this.EVENT[name] = null
   }
 }
+
+export default Event;

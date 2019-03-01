@@ -87,31 +87,31 @@ export default {
 }
 </script>
 <style>
-  :focus {
-    outline: 0;
-  }
-  .exchange-logo {
-      float: left;
-      display: inline-block;
-  }
-  .exchange-logo img {
-      width: 110px;
-      margin-top: 10px;
-  }
-  .exchange-header{
-    float: right;
-    display: -webkit-inline-box;
-    display: -ms-flexbox;
-  }
-  .exchange-header li{
-    height: 100%;
-    display:inline-block;
-    border-bottom: 2px solid;
-  }
-  .exchange-header li:last-child{
-    border-bottom:none;
-  }
-  .exchange-language{
-    width: 120px;
-  }
+:focus {
+  outline: 0;
+}
+.exchange-logo {
+    float: left;
+    display: inline-block;
+}
+.exchange-logo img {
+    width: 110px;
+    margin-top: 10px;
+}
+.exchange-header{
+  float: right;
+  display: -webkit-inline-box;
+  display: -ms-flexbox;
+}
+.exchange-header li{
+  height: 100%;
+  display:inline-block;
+  border-bottom: 2px solid;
+}
+.exchange-header li:last-child{
+  border-bottom:none;
+}
+.exchange-language{
+  width: 120px;
+}
 </style>

@@ -1,11 +1,10 @@
-
+import Event from './event.js';
 var socket = {
   socket: null, // socket name
   realTimeData: null, // 请求实时数据的参数
   intervalObj: null, // 定时器的名字
   lastRealTimeData: null, // 上一次请求的产品
-
-  sendData(historyData, realTimeDatas, history) {
+  sendData (historyData, realTimeDatas, history) {
     // 储存历史数据
     this.historyData = historyData
     this.realTimeData = realTimeDatas
@@ -22,15 +21,14 @@ var socket = {
       // 请求这一次的历史
       this.sendWsRequest(this.historyData)
 
-      // 如果不是订阅历史产品 那么肯定就是切换周期咯 或者切换产品咯 
+      // 如果不是订阅历史产品 那么肯定就是切换周期咯 或者切换产品咯
       // 那么就订阅一下 这次产品的或者周期的 实时数据
       !history && this.sendWsRequest({
         args: [this.realTimeData],
         cmd: 'sub',
-        id : 'fd0823a5-e16b-4f46-8b68-3fd723beb321'
+        id: 'fd0823a5-e16b-4f46-8b68-3fd723beb321'
       })
     } else {
-
       // 如果是第一次订阅，就是说刚进入交易所，
       // 先存起来这一次请求的产品 作为历史产品
       this.lastRealTimeData = this.realTimeData
@@ -45,7 +43,7 @@ var socket = {
       this.sendWsRequest({
         args: [this.realTimeData],
         cmd: 'sub',
-        id : 'fd0823a5-e16b-4f46-8b68-3fd723beb321'
+        id: 'fd0823a5-e16b-4f46-8b68-3fd723beb321'
       })
     }
     this.socket.onmessage = resp => {
@@ -74,7 +72,7 @@ var socket = {
     Event.emit('realTime', data)
     Event.emit('data', data)
   },
-  checkSendMessage(options) {
+  checkSendMessage (options) {
     // 这里处理websocket 连接不上的问题
     var checkTimes = 10
     var i = 0
@@ -112,4 +110,4 @@ var socket = {
   }
 }
 
-// export default socket
+export default socket

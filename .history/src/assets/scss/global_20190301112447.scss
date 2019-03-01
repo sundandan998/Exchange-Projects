@@ -59,14 +59,17 @@ $coin-bgc:#fff;
     height: 20px;
   }
 }
-#trade-view{
-  height: 100%;
+#outdoor {
   width: 100%;
-  margin-left: 20px;
+  height: 600px;
+  margin-top: -100px;
+}
+.trade-view{
+
 }
 .coin-main-bottom {
   position: relative;
-  top: 20px;
+  top: 122px;
   width: 100%;
 }
 .coin-main-bottom-left {

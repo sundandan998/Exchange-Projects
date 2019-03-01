@@ -1,7 +1,7 @@
 <template>
   <el-container class='currency-trading-page'>
     <el-container>
-      <el-aside width='320px' class='coin-aside'>
+      <el-aside width='305px' class='coin-aside'>
         <div class='coin-aside-top'>
           <div class='coin-aside-top-title'>
             <h3>市场</h3>
@@ -46,7 +46,7 @@
             <img src='../../assets/Images/sun.png' alt=''>
           </div>
           <div class='coin-main-tradingview'>
-            <div id="trade-view"></div>
+            <div id="" class="" style="height:400px;"></div>
           </div>
         </div>
         <div class='coin-main-bottom'>

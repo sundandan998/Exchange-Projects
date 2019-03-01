@@ -1,7 +1,7 @@
 <template>
   <el-container class='currency-trading-page'>
     <el-container>
-      <el-aside width='320px' class='coin-aside'>
+      <el-aside  class='coin-aside'>
         <div class='coin-aside-top'>
           <div class='coin-aside-top-title'>
             <h3>市场</h3>
