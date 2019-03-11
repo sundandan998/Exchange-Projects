@@ -16,7 +16,7 @@
             <input type='text' placeholder='请输入币种简称'>
             <img src='../../assets/Images/Search.png' alt=''>
           </div>
-            <el-table :data='tableData1' height='150' class='coin-aside-back'>
+            <el-table :data='tableData' height='150' class='coin-aside-back'>
               <el-table-column prop='market' sortable label='市场' width='100'>
               </el-table-column>
               <el-table-column prop='price' label='最新价' width='105'>
@@ -30,11 +30,11 @@
             <h3>最新成交</h3>
           </div>
           <el-table :data='tableData1' height='150'>
-            <el-table-column prop='market' label='价格(USDT)' width='100'>
+            <el-table-column prop='price' label='价格(USDT)' width='100'>
             </el-table-column>
-            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            <el-table-column prop='amount' label='数量(BTC)' width='105'>
             </el-table-column>
-            <el-table-column prop='ups' label='时间' width='100'>
+            <el-table-column prop='ts' label='时间' width='100'>
             </el-table-column>
           </el-table>
         </div>
@@ -122,26 +122,31 @@
       </el-main>
       <el-aside width='310px' class='coin-aside'>
         <div class='coin-aside-right-top'>
-        <div id= "trade-view"></div>
+        <!-- <div id= "trade-view"></div> -->
           <div class='coin-aside-top-title'>
-            <h3>最新成交</h3>
+            <h3>买卖盘</h3>
           </div>
-          <el-table :data='tableData1' height='150'>
-            <el-table-column prop='market' label='价格(USDT)' width='100'>
+          <el-table :data='tableData2' height='150'>
+            <el-table-column prop='price' label='价格(USDT)' width='100'>
             </el-table-column>
-            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            <el-table-column prop='number' label='数量(BTC)' width='105'>
             </el-table-column>
             <el-table-column prop='ups' label='累计' width='100'>
             </el-table-column>
           </el-table>
         </div>
+          <div class="coin-aside-right-center">
+            <el-table height='150' :data='ticker'>
+              <el-table-column prop='latest' width='100'></el-table-column>
+            </el-table>
+          </div>
         <div class='coin-aside-right-bottom'>
-          <el-table :data='tableData1' height='150'>
-            <el-table-column prop='market' label='价格(USDT)' width='100'>
+          <el-table :data='tableData3' height='150'>
+            <el-table-column prop='price3' label='价格(USDT)' width='100'>
             </el-table-column>
-            <el-table-column prop='price' label='数量(BTC)' width='105'>
+            <el-table-column prop='number3' label='数量(BTC)' width='105'>
             </el-table-column>
-            <el-table-column prop='ups' label='累计' width='100'>
+            <el-table-column prop='ups3' label='累计' width='100'>
             </el-table-column>
           </el-table>
         </div>
@@ -197,8 +202,9 @@
   </el-container>
 </template>
 <script>
-  import { widget as TvWidget } from '../../../static/charting_library/charting_library.min'
-  import FeedBase from '../../datafeed'
+  // import { widget as TvWidget } from '../../../static/charting_library/charting_library.min'
+  import Event from '../../event'
+  import socket from '../../websocket'
 export default {
   name: 'HelloWorld',
   data () {
@@ -212,7 +218,7 @@ export default {
         lastTime: null,
         getBarTimer: null,
         isLoading: true,
-      tableData1: [{
+      tableData: [{
         market: 'BTC/USDT',
         price: '3,977.96',
         ups: '+0.94%'
@@ -228,49 +234,59 @@ export default {
         ups: '+0.94%'
       }
       ],
-      tableData: [{
-        date: '2016-05-02',
-        pairs: 'BTC/USDT',
-        direction: '买入',
-        type: '币币',
-        price: '3,977.96',
-        number: '1.0000',
-        total: '3,977.96',
-        complate: '0.100',
-        ncomplate: '0.9000',
-        state: '已完成'
-      },
-      {
-        date: '2016-05-02',
-        pairs: 'BTC/USDT',
-        direction: '买入',
-        type: '币币',
-        price: '3,977.96',
-        number: '1.0000',
-        total: '3,977.96',
-        complate: '0.100',
-        ncomplate: '0.9000',
-        state: '已完成'
-      }]
+      tableData1: null,
+      tableData2: [],
+      tableData3:[],
+      ticker:[]
     }
   },
   mounted() {
+    socket.initWs()
+     Event.on('data', data => {
+      //  console.log(data.asks)
+      // console.log(data.ticker)
+      //  this.tableData1 = data.data
+      for(var i in data.asks) {
+        if (data.asks && i % 2 == 0){
+          this.tableData2.push(
+            {
+            'price':(data.asks[i]).toFixed(2),
+            'number':(data.asks[++i]).toFixed(4),
+            'ups':(data.asks[i] + data.asks[++i]).toFixed(4)
+            }  
+          )
+        }
+      }
+      for (var i in data.bids){
+        if (data.bids && i % 2 == 0){
+          this.tableData3.push({
+            'price3':(data.bids[i]).toFixed(2),
+            'number3':(data.bids[++i]).toFixed(4),
+            'ups3':(data.bids[i] + data.bids[++i]).toFixed(4)
+          })
+        }
+      }
+
+        this.ticker.push({
+          'latest':(data.ticker[0]).toFixed(4)
+          })
+    })
     let index_market = 'BTC/USDT'
     // 进入页面 默认展示的产品周期
     let index_activeCycle = '1'
-    this.widget = new TvWidget({
-      symbol: index_market,
-      interval: index_activeCycle,
-      // fullscreen: true,
-      container_id: 'trade-view',
-      datafeed: new FeedBase(),
-      library_path: '../static/charting_library/',
-      disabled_features: ['header_symbol_search'],
-      enabled_features: [],
-      timezone: 'Asia/Shanghai',
-      locale: 'zh',
-      debug: false
-    })
+    // this.widget = new TvWidget({
+    //   symbol: index_market,  
+    //   interval: index_activeCycle,
+    //   // fullscreen: true,
+    //   container_id: 'trade-view',
+    //   // datafeed: new FeedBase(),
+    //   library_path: '../static/charting_library/',
+    //   disabled_features: ['header_symbol_search'],
+    //   enabled_features: [],
+    //   timezone: 'Asia/Shanghai',
+    //   locale: 'zh',
+    //   debug: false
+    // })
   },
   methods: {
     jumpPage () {

@@ -33,15 +33,25 @@ var socket = {
       // 先存起来这一次请求的产品 作为历史产品
       this.lastRealTimeData = this.realTimeData
       // 然后 初始化一下websocket
-      this.initWs(historyData)
+      // this.initWs(historyData)
     }
   },
   initWs () {
     this.socket = new WebSocket('wss://api.fcoin.com/v2/ws')
     this.socket.onopen = () => {
-      this.sendWsRequest(this.historyData)
+      // this.sendWsRequest(this.historyData)
       this.sendWsRequest({
-        args: [this.realTimeData],
+        args:['trade.ethbtc',20],
+        cmd: 'sub',
+        id: 'fd0823a5-e16b-4f46-8b68-3fd723beb321'
+      })
+      this.sendWsRequest({
+        args:['ticker.ethbtc'],
+        cmd: 'sub',
+        id: 'fd0823a5-e16b-4f46-8b68-3fd723beb321'
+      })
+      this.sendWsRequest({
+        args:['depth.L20.ethbtc'],
         cmd: 'sub',
         id: 'fd0823a5-e16b-4f46-8b68-3fd723beb321'
       })
